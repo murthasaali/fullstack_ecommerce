@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import Navbar1 from './navbar'
 import Login from './login'
 import Cart from './cart'
-import Registration from './registration'
+import {Registration} from './registration'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Shop from './shop'
 import Home1 from './home1'
@@ -14,6 +14,9 @@ import Admin from './admin'
 
 import Nav from './nav'
 import Navbar1 from './navbar'
+import AddProduct from './adimin/addProduct'
+import AllProducts from './adimin/allProducts'
+import EditProductAdmin from './adimin/editProduct'
 
 export const mycontext = createContext()
 function Home() {
@@ -55,8 +58,11 @@ function Home() {
             <Route path='/admin' element={<Admin />} />
             <Route path='/admin/user' element={<Admin />} />
             <Route path='/admin/addproduct' element={<Admin />} />
+            <Route path='/admin/editproduct/:id' element={<EditProductAdmin />} />
+            <Route path='/admin/allproduct' element={<AllProducts />} />
             <Route path='/admin/sales' element={<Admin />} />
             <Route path='/admin/prosec' element={<Admin />} />
+            <Route path='/admin/add' element={<AddProduct />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/reg' element={<Registration />} />
