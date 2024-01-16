@@ -55,7 +55,7 @@ const AddProduct = () => {
         },
       };
 
-      const response = await Axios.post('http://localhost:3000/products/add', form, config);
+      const response = await Axios.post('http://localhost:3001/products/add', form, config);
 
       console.log('Response:', response);
     } catch (error) {

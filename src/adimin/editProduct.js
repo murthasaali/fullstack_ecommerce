@@ -17,7 +17,7 @@ const AddProduct = () => {
   useEffect(() => {
     const getaProduct = async () => {
       try {
-        const response = await Axios.get(`http://localhost:3000/products/getaproduct/${id}`);
+        const response = await Axios.get(`http://localhost:3001/products/getaproduct/${id}`);
         setItem(response.data.data);
       } catch (error) {
         console.error("Error fetching product:", error.message);
@@ -43,40 +43,36 @@ const AddProduct = () => {
     const objectUrl = URL.createObjectURL(file);
     setImageUrl(objectUrl);
   };
-
+  
   const handle = async (e) => {
     e.preventDefault();
-
+    const name=formData.name
+    const catogery=formData.catogery
+    const price=formData.price
+    const description=formData.description
+    console.log(formData)
+   
+  
+  
     try {
-      // Upload image to Cloudinary
-      const imageLink = await uploadToCloudinary(selectedFile);
-      console.log("clodinay link",imageLink)
+      const image = await uploadToCloudinary(selectedFile);
+      console.log("Cloudinary link:", image);
+  
+  
+     
+     
 
-      // Set the image URL in your form data
-      setFormData({ ...formData, imageURL: imageLink });
-
-      // Continue with your form submission logic
-      const form = new FormData();
-      form.append('image',  imageLink);
-      form.append('name', formData.name);
-      form.append('price', formData.price);
-      form.append('catogery', formData.catogery);
-      form.append('description', formData.description);
-
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      };
-
-      const response = await Axios.put(`http://localhost:3000/products/update/${id}`, form);
-
+      
+  
+      const response = await Axios.put(`http://localhost:3001/products/update/${id}`,{name,catogery,price,description,image},
+      );
+  
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error:', error.message);
     }
   };
-
+  
 
   return (
     <div className='bg-black justify-start items-start  flex p-1    flex-col w-full h-screen focus:outline-none ' style={{ zIndex: 999 }}>
@@ -92,8 +88,7 @@ const AddProduct = () => {
         <div className='w-full flex flex-wrap '  style={{ zIndex: 999 }}>
 
       <form 
- encType="multipart/form-data"      className="
-      flex flex-col items-center justify-center gap-4 w-full rounded-lg text-white" onSubmit={handle}>
+ encType="multipart/form-data"      className=" flex flex-col items-center justify-center gap-4 w-full rounded-lg text-white" onSubmit={handle}>
       <input
             type="text"
             name="name"

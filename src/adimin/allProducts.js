@@ -10,25 +10,17 @@ const AllProducts = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/products/get');
-      const productsWithImageData = response.data.map((product) => {
-        if (product.image && product.image.data) {
-          const imageDataUri = `data:image/jpeg;base64,${btoa(String.fromCharCode.apply(null, new Uint8Array(product.image.data)))}`;
-          return { ...product, imageDataUri };
-        } else {
-          return { ...product, imageDataUri: null };
-        }
-      });
-
+      const response = await axios.get('http://localhost:3001/products/get');
+      const productsWithImageData =await response.data;
+      console.log('Products:', productsWithImageData);
       setProducts(productsWithImageData);
-      console.log(productsWithImageData);
     } catch (error) {
       console.error('Error fetching products:', error.message);
     }
   };
+  
 
   const select = (event) => {
     setSelectedCategory(event.target.value);
@@ -37,7 +29,7 @@ const AllProducts = () => {
 
   const handleDelete = async (productId) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/products/removeproduct/${productId}`);
+      const response = await axios.delete(`http://localhost:3001/products/removeproduct/${productId}`);
       console.log(response.data);
       // Assuming the server sends a message upon successful deletion
       // You may want to update the products state or take other actions based on the response
