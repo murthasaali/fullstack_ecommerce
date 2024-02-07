@@ -3,10 +3,12 @@ import Axios from 'axios';
 import bg from '../example.png';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useNavigate } from 'react-router-dom';
+import AdminSidemenu from '../components/adminSidemenu';
+import Round from '../styleComponents/round';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
-    imageURL: '',
+    image: '',
     category: '',
     name: '',
     price: '',
@@ -32,50 +34,49 @@ const AddProduct = () => {
 
   const handle = async (e) => {
     e.preventDefault();
-
+    
     try {
       // Upload image to Cloudinary
       const imageLink = await uploadToCloudinary(selectedFile);
-      console.log("clodinay link",imageLink)
-
-      // Set the image URL in your form data
-      setFormData({ ...formData, imageURL: imageLink });
-
-      // Continue with your form submission logic
-      const form = new FormData();
-      form.append('image',  imageLink);
-      form.append('name', formData.name);
-      form.append('price', formData.price);
-      form.append('catogery', formData.catogery);
-      form.append('description', formData.description);
-
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      };
-
-      const response = await Axios.post('http://localhost:3001/products/add', form, config);
-
+      console.log("cloudinary link", imageLink);
+      const name = formData.name;
+      const price = formData.price;
+      const category = formData.category;
+      const description = formData.description;
+  
+      setFormData({
+        ...formData,
+        image: imageLink
+      });
+      console.log(formData)
+  
+      // Wait for state update to complete
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+      const response = await Axios.post('http://localhost:3001/products/add', formData);
       console.log('Response:', response);
+      alert("succussfully added")
+
     } catch (error) {
       console.error('Error:', error.message);
     }
   };
-
+  
 
   return (
     <div className='bg-white justify-start items-start  flex p-1    flex-col w-full h-screen focus:outline-none '>
+     
+  {/* <AdminSidemenu/> */}
+
         <nav className='w-full h-20 rounded-full flex justify-evenly'>
-        <h1 className='font-thin' style={
+        <h1 className='font-thin backdrop-blur-lg w-full text-center py-2 fixed rounded-full px-11' style={
             { background: 'linear-gradient(to right, #ff8c00, #ff2d55)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             color: 'transparent',}
-        }>add products</h1>
+        }>Add products</h1>
 
         </nav>
-        <div className='w-full flex flex-wrap '  style={{ zIndex: 999 }}>
+        <div className='w-full flex flex-wrap  justify-center items-center mt-24'  style={{ zIndex: 999 }}>
 
       <form className=" flex flex-col items-center justify-center gap-4 w-1/2 rounded-lg " onSubmit={handle}>
       <input
@@ -96,8 +97,8 @@ const AddProduct = () => {
             />
             <input
               type="text"
-              name="catogery"
-              placeholder="catogery"
+              name="category"
+              placeholder="category"
               className='bg-transparent border-red-800 border w-[100px] h-11 rounded-lg p-2'
               onChange={handleInputChange} // Attach handleInputChange to onChange
             />
@@ -133,17 +134,13 @@ const AddProduct = () => {
 
             reset
           </button>
+          <AdminSidemenu/>
+          <Round/>
       </div>
       </form>
       <div className='w-[200px] h-[200px] bg-blue-400 absolute right-28 bottom-10 blur-3xl' style={{ zIndex: 1 }}>
 </div>
-      <div className='w-1/2 h-full '  style={{
-backgroundImage: `url(${bg})`,
-backgroundSize:"cover",
-        backgroundRepeat:"no-repeat"
-      }}  >
-
-      </div>
+     
       </div>
 
     </div>

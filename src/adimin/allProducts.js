@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaIcon } from 'react-fa-icon';
 import { MdDeleteOutline, MdEdit } from 'react-icons/md';
+import AdminSidemenu from '../components/adminSidemenu';
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -41,8 +42,9 @@ const AllProducts = () => {
   
 
   return (
-      <div className="w-full h-screen bg-black p-3 flex items-center flex-col">
-        <h1 className='font-thin' style={
+      <div className="w-full h-auto bg-white  flex items-center flex-col px-5">
+        <AdminSidemenu/>
+        <h1 className='font-thin backdrop-blur-lg w-full text-center py-2 fixed rounded-full px-11' style={
             { background: 'linear-gradient(to right, #ff8c00, #ff2d55)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
@@ -50,9 +52,9 @@ const AllProducts = () => {
         }>All products</h1>
 
         
-    <table className="min-w-full rounded-lg  p-4 mt-12">
-        <thead className=' text-white  border rounded-lg '>
-            <tr className='rounded-lg'>
+    <table className="min-w-full rounded-lg   p-10 mt-20">
+        <thead className=' text-black   rounded-lg '>
+            <tr className='rounded-lg  backdrop-blur-xl'>
                
                 <th className="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">
                     Product Name
@@ -89,29 +91,29 @@ const AllProducts = () => {
                 </th>
             </tr>
         </thead>
-        <tbody className=" bg-stone-300  divide-y divide-gray-200">
             {
-                products.map((product) => (
-                    <tr key={product._id}>
+              products.map((product) => (
+                  <tbody key={product._id} className=" bg-stone-300  divide-y rounded-full p-2 mt-2 divide-gray-200">
+                    <tr  className='rounded-lg mt-2'>
                 
                         <td className="px-6 py-4 whitespace-nowrap text-cyan-600">{product.name}</td>
                         <td className="px-6 py-4 whitespace-nowrap">
                             <img
                                 src={product.image}
                                 alt={product.name}
-                                className="h-16 w-16 rounded-full"
+                                className="h-16 w-16 rounded-md"
                             />
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">{product.catogery}</td>
-                        <td className="px-6 py-4 wrap">{product.description.split('').slice(0,20).join('')}...</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{product.category}</td>
+                        <td className="px-6 py-4 wrap">{product.description}...</td>
                         <td className="px-6 py-4 whitespace-nowrap">${product.price}</td>
                         <td className="px-6 py-4 whitespace-nowrap  text-cyan-800"   ><MdDeleteOutline onClick={()=>handleDelete(product._id)}/></td>
                         <td className="px-6 py-4 whitespace-nowrap text-red-800" ><MdEdit/></td>
                         
                     </tr>
+        </tbody>
 
                 ))}
-        </tbody>
     </table>
 </div>
   )

@@ -6,6 +6,7 @@ import Userlist from './userlist'
 import Dashboard from './dashboard'
 import Productsec from './Productsec'
 import { MDBIcon } from 'mdb-react-ui-kit'
+import AddProduct from './adimin/addProduct'
 
 function Admin() {
   const loctaion=useLocation()
@@ -29,7 +30,7 @@ function Admin() {
         </div>
         <div className='bg-gray-200  flex-column justify-center w-11/12 h-full  rounded-lg '>
 {
-  isproduct && < Addproduct/>
+  isproduct && < AddProduct/>
  
 }
 {

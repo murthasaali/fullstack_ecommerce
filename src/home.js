@@ -17,6 +17,10 @@ import Navbar1 from './navbar'
 import AddProduct from './adimin/addProduct'
 import AllProducts from './adimin/allProducts'
 import EditProductAdmin from './adimin/editProduct'
+import Dashboard from './adimin/Dashboard'
+import Sales from './adimin/sales'
+import Users from './adimin/users'
+import LandingPge from './usersection/landingPge'
 
 export const mycontext = createContext()
 function Home() {
@@ -45,17 +49,16 @@ function Home() {
         <mycontext.Provider value={{
      addpro, setAddpro, pop, shops,setShops,search,setSearch,login, setLogin, ProductData, pass, setpass, carts, prof, setProf, setCarts,names,setNames,iscart,setisCart,setPop
         }}>
-          {
-           
-
-       !isadmin &&
-            <Navbar1 />
-
-
-      }
+       
           <Routes>
-            <Route path='/' element={<Home1 />} />
+            <Route path='/' element={<LandingPge />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='/admin/add' element={<AddProduct />} />
+            <Route path='/admin/all' element={<AllProducts />} />
+            <Route path='/admin/dashboard' element={<Dashboard />} />
+            <Route path='/admin/sales' element={<Sales />} />
+            <Route path='/admin/userslist' element={<Users />} />
+
             <Route path='/admin/user' element={<Admin />} />
             <Route path='/admin/addproduct' element={<Admin />} />
             <Route path='/admin/editproduct/:id' element={<EditProductAdmin />} />
