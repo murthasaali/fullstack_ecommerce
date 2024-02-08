@@ -14,7 +14,7 @@ function TopProducts() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/products/get');
+      const response = await axios.get('http://localhost:3001/admin/get');
       const productsWithImageData = await response.data;
       console.log('Products:', productsWithImageData);
       setProducts(productsWithImageData);
@@ -24,11 +24,11 @@ function TopProducts() {
   };
 
   return (
-    <div className='p-2 w-full h-auto flex flex-col justify-start items-center bg-stone-200 z-30 rounded-t-3xl'>
+    <div className='p-2 w-full h-auto flex flex-col justify-start items-center  z-30 rounded-t-3xl'>
       <Chevron />
-      <h1 className='font-thin text-center sticky top-20 text-black px-10 rounded' style={{ backgroundColor: "#F5CFCF" }}>
+      <p className='font-thin text-center sticky top-20 text-black px-10 rounded' style={{ backgroundColor: "#F5CFCF" }}>
         Top Products
-      </h1>
+      </p>
       {/* Render the fetched products */}
       <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-8 mt-5">
         {products.map(product => (

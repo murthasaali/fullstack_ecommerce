@@ -64,7 +64,7 @@ const AddProduct = () => {
 
       
   
-      const response = await Axios.put(`http://localhost:3001/products/update/${id}`,{name,catogery,price,description,image},
+      const response = await Axios.put(`http://localhost:3001/admin/update/${id}`,{name,catogery,price,description,image},
       );
   
       console.log('Response:', response.data);

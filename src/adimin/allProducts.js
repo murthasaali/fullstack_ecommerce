@@ -13,7 +13,7 @@ const AllProducts = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/products/get');
+      const response = await axios.get('http://localhost:3001/admin/get');
       const productsWithImageData =await response.data;
       console.log('Products:', productsWithImageData);
       setProducts(productsWithImageData);
