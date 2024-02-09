@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 // import Navbar1 from './navbar'
-import Login from './login'
 import Cart from './cart'
-import {Registration} from './registration'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Shop from './shop'
 import Home1 from './home1'
@@ -11,9 +9,7 @@ import { createContext } from 'react'
 import { ProductData } from './productdata'
 import Showproduct from './Showproduct'
 import Admin from './admin'
-
-import Nav from './nav'
-import Navbar1 from './navbar'
+import {Toaster} from "react-hot-toast"
 import AddProduct from './adimin/addProduct'
 import AllProducts from './adimin/allProducts'
 import EditProductAdmin from './adimin/editProduct'
@@ -21,6 +17,8 @@ import Dashboard from './adimin/Dashboard'
 import Sales from './adimin/sales'
 import Users from './adimin/users'
 import LandingPge from './usersection/landingPge'
+import Login from './usersection/login'
+import { Registration } from './usersection/registration'
 
 export const mycontext = createContext()
 function Home() {
@@ -45,11 +43,15 @@ function Home() {
 ])
   return (
     <>
-         
         <mycontext.Provider value={{
-     addpro, setAddpro, pop, shops,setShops,search,setSearch,login, setLogin, ProductData, pass, setpass, carts, prof, setProf, setCarts,names,setNames,iscart,setisCart,setPop
+          addpro, setAddpro, pop, shops,setShops,search,setSearch,login, setLogin, ProductData, pass, setpass, carts, prof, setProf, setCarts,names,setNames,iscart,setisCart,setPop
         }}>
        
+          <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+               
           <Routes>
             <Route path='/' element={<LandingPge />} />
             <Route path='/admin' element={<Admin />} />
@@ -58,6 +60,10 @@ function Home() {
             <Route path='/admin/dashboard' element={<Dashboard />} />
             <Route path='/admin/sales' element={<Sales />} />
             <Route path='/admin/userslist' element={<Users />} />
+               <Route path='/login' element={<Login />} />
+               <Route path='/reg' element={<Registration />} />
+
+
 
             <Route path='/admin/user' element={<Admin />} />
             <Route path='/admin/addproduct' element={<Admin />} />
@@ -66,9 +72,8 @@ function Home() {
             <Route path='/admin/sales' element={<Admin />} />
             <Route path='/admin/prosec' element={<Admin />} />
             <Route path='/admin/add' element={<AddProduct />} />
-            <Route path='/login' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='/reg' element={<Registration />} />
+           
             <Route path='/catshop' element={<Shop />} />
             <Route path='/dogshop' element={<Dogshop />} />
             <Route path='/showproduct/:id' element={<Showproduct />} />

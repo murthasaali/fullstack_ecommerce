@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import Blank from './blank'
 import Products from './products'
 import { useNavigate } from 'react-router-dom'
 import { mycontext } from './home'

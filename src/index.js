@@ -10,18 +10,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './home';
 import Shop from './shop';
+import Toaster from 'react-hot-toast'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <Provider store={store}>
-
     <BrowserRouter>
-   
- <Home/>
+  <Provider store={store}>
+  
+    <Home/>
+  </Provider>
+</BrowserRouter>
 
-    </BrowserRouter>
-     </Provider>
   </React.StrictMode>
 );
 

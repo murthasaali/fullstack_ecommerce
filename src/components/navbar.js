@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { RiBubbleChartFill } from "react-icons/ri";
 import icon from '../assets/icon.png';
 import axios from 'axios';
-import { MdClose } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux'
 
+import { MdClose } from 'react-icons/md';
 function Navbar() {
   const [search, setSearch] = useState(false);
   const [searchData, setSearchData] = useState([]);
