@@ -76,7 +76,7 @@ function TopProducts() {
   
   
   return (
-    <div className='p-2 w-full h-auto  bg flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
+    <div className='p-2 w-full h-auto  bg-black    flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
       backgroundColor: "#F5CFCF "
   }} >
       <Chevron />
