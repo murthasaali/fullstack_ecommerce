@@ -6,13 +6,13 @@ import axios from 'axios';
 import {motion} from "framer-motion"
 import { container,item } from '../constants/framermotion';
 import { MdClose } from 'react-icons/md';
+import {useNavigate} from 'react-router-dom'
 function Navbar() {
   const [search, setSearch] = useState(false);
   const [searchData, setSearchData] = useState([]);
   const [products, setProducts] = useState([]);
   const [string, setString] = useState("");
-
-
+  const nav=useNavigate()
 
   const fetchData = async () => {
     try {
@@ -52,7 +52,8 @@ function Navbar() {
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>home</button>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>contact</button>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>shop</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>home</button>
+        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/cart")}>cart</button>
+        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("wishlist")}>wishlist</button>
       </div>
       <div className='flex gap-5'>
         <div className='w-auto h-auto flex items-center px-10 justify-evenly gap-2 rounded-full py-1 pl-4 bg-white'>

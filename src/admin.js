@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import Addproduct from './addproduct'
 import Sales from './sales'
 import Userlist from './userlist'
 import Dashboard from './dashboard'

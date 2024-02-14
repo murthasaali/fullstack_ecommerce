@@ -19,6 +19,9 @@ import Users from './adimin/users'
 import LandingPge from './usersection/landingPge'
 import Login from './usersection/login'
 import { Registration } from './usersection/registration'
+import UserCart from './usersection/cart'
+import UserWishlist from './usersection/wishlist'
+import EditProduct from './adimin/editAproduct'
 
 export const mycontext = createContext()
 function Home() {
@@ -60,19 +63,16 @@ function Home() {
             <Route path='/admin/dashboard' element={<Dashboard />} />
             <Route path='/admin/sales' element={<Sales />} />
             <Route path='/admin/userslist' element={<Users />} />
+            <Route path='/admin/edit/:id' element={<EditProduct />} />
                <Route path='/login' element={<Login />} />
                <Route path='/reg' element={<Registration />} />
+               <Route path='/cart' element={<UserCart/>} />
+               <Route path='/wishlist' element={<UserWishlist/>} />
 
 
 
-            <Route path='/admin/user' element={<Admin />} />
-            <Route path='/admin/addproduct' element={<Admin />} />
-            <Route path='/admin/editproduct/:id' element={<EditProductAdmin />} />
-            <Route path='/admin/allproduct' element={<AllProducts />} />
-            <Route path='/admin/sales' element={<Admin />} />
-            <Route path='/admin/prosec' element={<Admin />} />
-            <Route path='/admin/add' element={<AddProduct />} />
-            <Route path='/cart' element={<Cart />} />
+            
+            {/* <Route path='/cart' element={<Cart />} /> */}
            
             <Route path='/catshop' element={<Shop />} />
             <Route path='/dogshop' element={<Dogshop />} />

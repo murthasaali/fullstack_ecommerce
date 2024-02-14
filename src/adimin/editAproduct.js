@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Axios from 'axios';
 import bg from '../example.png';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';
 import Round from '../styleComponents/round';
 
-const AddProduct = () => {
-  const [formData, setFormData] = useState({
+const EditProduct = () => {
+    const { id } = useParams();
+    const [product,setProduct]=useState({})
+    useEffect(() => {
+        const fetchProduct = async () => {
+          try {
+            const productId = id // Replace with the actual product ID
+            const response = await Axios.get(`http://localhost:3001/admin/getaproduct/${productId}`);
+            setProduct(response.data.data);
+            console.log(response.data.data)
+          } catch (error) {
+            console.error('Error fetching product:', error);
+          }
+        };
+    
+        fetchProduct();
+      }, []);
+    console.log(id)
+    const [formData, setFormData] = useState({
     image: '',
     category: '',
     name: '',
@@ -15,16 +32,13 @@ const AddProduct = () => {
     description: '',
   });
 
-
-  
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
   const navigate = useNavigate();
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
   };
 
   const handleFileInputChange = (e) => {
@@ -38,6 +52,7 @@ const AddProduct = () => {
     e.preventDefault();
   
     try {
+        
       const imageLink = await uploadToCloudinary(selectedFile);
       console.log("cloudinary link", imageLink);
   
@@ -46,8 +61,8 @@ const AddProduct = () => {
         image: imageLink,
       };
   
-      const response = await Axios.post('http://localhost:3001/admin/add', updatedFormData);
-      console.log('Product added successfully', response.data);
+      const response = await Axios.put(`http://localhost:3001/admin/update/${id}`, updatedFormData);
+      console.log('Product updated successfully', response.data);
       alert("Product added successfully");
   
       setFormData({
@@ -64,7 +79,7 @@ const AddProduct = () => {
     }
   };
   
-  
+  console.log(product)
 
   return (
     <div className='bg-white justify-start items-start  flex p-1    flex-col w-full h-screen focus:outline-none '>
@@ -86,9 +101,17 @@ const AddProduct = () => {
       <input
             type="text"
             name="name"
-            value={formData.name}
+            value={product.name}
             placeholder="Product Name"
             className='bg-transparent border-red-800 border-spacing-x-px-[2] w-1/2 h-11 rounded-lg p-2'
+            onChange={handleInputChange} // Attach handleInputChange to onChange
+          />
+      <input
+            type="url"
+            name="image"
+            value={product.image}
+            placeholder="Product Name"
+            className='bg-transparent border-red-800 text-xs border-spacing-x-px-[2] w-1/2 h-11 rounded-lg p-2'
             onChange={handleInputChange} // Attach handleInputChange to onChange
           />
 
@@ -96,7 +119,7 @@ const AddProduct = () => {
             <input
               type="tel"
               name="price"
-              value={formData.price}
+              value={product.price}
 
               placeholder="Price"
               className='bg-transparent border-red-800 border border-spacing-x-px-[2px] w-[100px] h-11 rounded-lg p-2'
@@ -105,7 +128,7 @@ const AddProduct = () => {
             <input
               type="text"
               name="category"
-              value={formData.category}
+              value={product.category}
 
               placeholder="category"
               className='bg-transparent border-red-800 border w-[100px] h-11 rounded-lg p-2'
@@ -116,7 +139,7 @@ const AddProduct = () => {
           <textarea
             name="description"
             placeholder="Description"
-            value={formData.description}
+            value={product.description}
 
             className='bg-transparent border-red-800 border border-spacing-x-px-[2] w-1/2 h-28 rounded-lg p-2'
             onChange={handleInputChange} // Attach handleInputChange to onChange
@@ -158,4 +181,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default EditProduct;

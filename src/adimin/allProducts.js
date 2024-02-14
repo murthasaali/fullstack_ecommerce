@@ -3,11 +3,11 @@ import axios from 'axios';
 import { FaIcon } from 'react-fa-icon';
 import { MdDeleteOutline, MdEdit } from 'react-icons/md';
 import AdminSidemenu from '../components/adminSidemenu';
-
+import {useNavigate} from 'react-router-dom'
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
-
+  const nav=useNavigate()
   useEffect(() => {
     fetchData();
   }, []);
@@ -30,7 +30,7 @@ const AllProducts = () => {
 
   const handleDelete = async (productId) => {
     try {
-      const response = await axios.delete(`http://localhost:3001/products/removeproduct/${productId}`);
+      const response = await axios.delete(`http://localhost:3001/admin/removeproduct/${productId}`);
       console.log(response.data);
       // Assuming the server sends a message upon successful deletion
       // You may want to update the products state or take other actions based on the response
@@ -83,11 +83,14 @@ const AllProducts = () => {
 
 
 
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Description
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                     Price
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                    qty
                 </th>
             </tr>
         </thead>
@@ -107,8 +110,9 @@ const AllProducts = () => {
                         <td className="px-6 py-4 whitespace-nowrap">{product.category}</td>
                         <td className="px-6 py-4 wrap">{product.description}...</td>
                         <td className="px-6 py-4 whitespace-nowrap">${product.price}</td>
+                        <td className="px-6 py-4 whitespace-nowrap">{product.qty}</td>
                         <td className="px-6 py-4 whitespace-nowrap  text-cyan-800"   ><MdDeleteOutline onClick={()=>handleDelete(product._id)}/></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-red-800" ><MdEdit/></td>
+                        <td className="px-6 py-4 whitespace-nowrap text-red-800" ><MdEdit onClick={()=>nav(`/admin/edit/${product._id}`)}/></td>
                         
                     </tr>
         </tbody>
