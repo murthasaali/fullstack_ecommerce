@@ -46,7 +46,7 @@ function Navbar() {
 
 
   return (
-    <nav className='w-full h-20 backdrop-blur-sm p-4 flex justify-between items-center md:px-20 fixed z-40'>
+    <nav className='w-full h-20 backdrop-blur-sm p-4 flex justify-between items-center md:px-20 fixed  top-0 z-40'>
       <div className='w-14 h-14 md:flex hidden' style={{ backgroundImage: `url(${icon})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}></div>
       <div className='w-40 h-5 md:flex hidden justify-center items-center gap-5'>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>home</button>

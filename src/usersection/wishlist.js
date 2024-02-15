@@ -4,6 +4,7 @@ import { config } from '../axios/userConfig'
 import ProductCard from '../components/productCard';
 import { MdClose } from 'react-icons/md';
 import { addToCart, addToWishlist } from '../utils/userServices';
+import Navbar from '../components/navbar';
 function UserWishlist() {
     const [product , setProduct]=useState([])
     const GetCartProduct = async () => {
@@ -36,7 +37,12 @@ function UserWishlist() {
     }, [])
     
   return (
-    <div className='w-full flex justify-center items-center h-screen bg-black'>
+    <div className='w-full flex justify-center items-center h-screen '
+    style={{
+      background: 'rgb(238,174,202)',
+      background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+    }}>
+      <Navbar/>
         <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-8 mt-5">
         {
         product.map((item, index) => (
