@@ -9,6 +9,7 @@ import Button from '../components/button';
 import { MdOutlinePets } from "react-icons/md";
 import dogsmile from '../assets/frames/dogsmile.png'
 import cutting from '../assets/grom.png'
+import vedio from '../assets/frames/vedio.mp4'
 import star from '../assets/star.png'
 function PetCareService() {
     return (<>
@@ -65,23 +66,31 @@ function PetCareService() {
 
                 </motion.div>
                 <motion.div
-                    className='md:w-[30%] w-full mt-1 gap-3 md:h-[400px] h-[230px] rounded-3xl flex flex-row md:px-0 px-1 md:flex-wrap'
+                    className='md:w-[30%] w-full mt-1 gap-3 md:h-[400px] h-[300px] rounded-3xl flex flex-row md:px-0 px-1 md:flex-wrap'
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    
+
                     transition={{ duration: 1, delay: 1.5 }}
                     >
                     <div className='md:h-[45%] h-[45%] md:w-full w-[40%] bg-sky-500 bg-opacity-30 rounded-lg  relative rounded-tr-[100px]'>
                         
-                        <motion.img src={star} className='md:h-48 md:w-52 h-24 w-28 absolute top-[-50%] right-0' alt=''  whileHover={{ scale: 1.1 }}
+                        <motion.img src={star} className='md:h-24 md:w-28 h-14 w-16 absolute  top-0 right-0' alt=''  whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.5 }}
       animate={{ y: [0, -10, 0], transition: { duration: 2.1, repeat: Infinity } }}/>
                         <img src={cutting} className='md:h-48 md:w-72 h-16 w-52 absolute right-[20%] bottom-0' alt=''/>
                     </div >
-                    <div className='h-[45%] w-full bg-orange-400 bg-opacity-60 rounded-lg relative '>
-                        <img src={dogsmile} className='md:h-36 md:w-32 h-18 w-14 absolute right-0 bottom-0' alt=''/>
-    <button className='absolute bottom-0 left-0 mb-2 ml-2 flex items-center gap-3 text-white '><MdPlayCircle  className='text-4xl hover:text-stone-500 transition-all duration-300 text-stone-200'/>  Play Video</button>
+                    <div className='h-[45%] w-full bg-orange-400 bg-opacity-60 rounded-lg relative'>
+    <video autoPlay loop muted className='w-full h-full object-cover rounded-lg'>
+        <source src={vedio} type="video/mp4" />
+        {/* Add additional source elements for different video formats if needed */}
+        Your browser does not support the video tag.
+    </video>
+    <img src={dogsmile} className='md:h-36 md:w-32 h-18 w-14 absolute right-0 bottom-0' alt='' />
+    <button className='absolute bottom-0 left-0 mb-2 ml-2 flex items-center gap-3 text-white'>
+        <MdPlayCircle className='text-4xl hover:text-stone-500 transition-all duration-300 text-stone-200' /> Play Video
+    </button>
 </div>
+
 
 
                 </motion.div>
