@@ -18,8 +18,8 @@ function AvatarModal({ setOpen, open }) {
         <div className="md:w-14 w-10 rounded-full" onClick={() => setOpen(true)}>
           <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="avatar" />
         </div>
-      </div>:<button onClick={()=>navigate("/login")}>
-      <RiLoginCircleLine />
+      </div>:<button onClick={()=>navigate("/login")} className='p-2 rounded-full bg-black text-xl'>
+      <RiLoginCircleLine className='text-white' />
         </button>}
       <Modal open={open} onClose={onCloseModal} center classNames={{ modal: 'bg-transparent rounded-lg backdrop-blur-md ', closeButton: 'text-white' }}>
       <div className="avatar">
