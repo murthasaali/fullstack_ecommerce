@@ -9,7 +9,6 @@ import Button from '../components/button';
 import { MdOutlinePets } from "react-icons/md";
 import dogsmile from '../assets/frames/dogsmile.png'
 import cutting from '../assets/grom.png'
-import vedio from '../assets/frames/vedio.mp4'
 import star from '../assets/star.png'
 function PetCareService() {
     return (<>
