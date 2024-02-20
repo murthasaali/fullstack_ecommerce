@@ -58,9 +58,9 @@ function Navbar() {
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/wishlist")}>wishlist</button>
       </div>
       <div className='flex gap-5'>
-        <div className='w-auto h-auto flex items-center px-10 justify-evenly gap-2 rounded-full py-1 pl-4 bg-white'>
+        <div className='w-auto h-auto flex items-center px-10 justify-evenly gap-2 rounded-full py-1 pl-4 bg-stone-50 bg-opacity-60'>
           <RiBubbleChartFill className="transform -translate-y-1/2 text-gray-400" />
-          <input onFocus={()=>setSearch(true)}value={string}  className='md:w-44 w-3/4 p-2 pl-8 backdrop-blur-sm md:h-10 h-8  focus:border-none bg-white outline-none' placeholder='search' onChange={handleSearch} />
+          <input onFocus={()=>setSearch(true)}value={string}  className='md:w-44 w-3/4 p-2 pl-8  md:h-10 h-8  focus:border-none bg-transparent outline-none' placeholder='search' onChange={handleSearch} />
         <button>
             <MdClose
   onClick={() =>{
