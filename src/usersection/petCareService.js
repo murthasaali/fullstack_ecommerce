@@ -68,6 +68,7 @@ function PetCareService() {
                     className='md:w-[30%] w-full mt-1 gap-3 md:h-[400px] h-[230px] rounded-3xl flex flex-row md:px-0 px-1 md:flex-wrap'
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
+                    
                     transition={{ duration: 1, delay: 1.5 }}
                     >
                     <div className='md:h-[45%] h-[45%] md:w-full w-[40%] bg-sky-500 bg-opacity-30 rounded-lg  relative rounded-tr-[100px]'>
