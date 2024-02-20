@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useNavigate,useParams } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';
@@ -62,7 +62,7 @@ const EditProduct = () => {
         image: imageLink,
       };
   
-      const response = await Axios.put(`http://localhost:3001/admin/update/${id}`, updatedFormData);
+      const response = await axios.put(`http://localhost:3001/admin/update/${id}`, updatedFormData);
       console.log('Product updated successfully', response.data);
       alert("Product added successfully");
   
