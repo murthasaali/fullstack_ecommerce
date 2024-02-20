@@ -13,7 +13,7 @@ export const addToWishlist = async (productId) => {
     }
 
     const response = await axios.post(
-      `http://localhost:3001/wishlist/add-to-wishlist/${productId}?userId=${userId}`,
+      `https://ecommerce-api-shne.onrender.com/wishlist/add-to-wishlist/${productId}?userId=${userId}`,
       null,
       {
         headers: {
@@ -41,7 +41,7 @@ export const addToCart = async (productId) => {
     }
 
     const response = await axios.post(
-      `http://localhost:3001/cart/add-to-cart/${productId}?userId=${userId}`,
+      `https://ecommerce-api-shne.onrender.com/cart/add-to-cart/${productId}?userId=${userId}`,
       null,
       {
         headers: {
@@ -59,7 +59,7 @@ export const addToCart = async (productId) => {
 };
 export const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/admin/get');
+      const response = await axios.get('https://ecommerce-api-shne.onrender.com/admin/get');
       return response.data;
     } catch (error) {
       throw new Error('Error fetching products: ' + error.message);
@@ -79,7 +79,7 @@ export const removeFromCart = async (productId) => {
     }
 
     const response = await axios.delete(
-      `http://localhost:3001/cart/remove-from-cart/${productId}?userId=${userId}`,
+      `https://ecommerce-api-shne.onrender.com/cart/remove-from-cart/${productId}?userId=${userId}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export const getCartProduct = async (setData) => {
       return;
     }
 
-    const response = await axios.get(`http://localhost:3001/cart/getcart?userId=${userId}`, {
+    const response = await axios.get(`https://ecommerce-api-shne.onrender.com/cart/getcart?userId=${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

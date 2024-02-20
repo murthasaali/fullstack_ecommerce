@@ -18,7 +18,7 @@ function Navbar() {
   console.log(search)
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/admin/get');
+      const response = await axios.get('https://ecommerce-api-shne.onrender.com/admin/get');
       const productsWithImageData = response.data;
       console.log('Products:', productsWithImageData);
       setProducts(productsWithImageData);

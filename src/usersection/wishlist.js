@@ -17,7 +17,7 @@ function UserWishlist() {
                 return;
             }
     
-            const response = await axios.get(`http://localhost:3001/wishlist/getwishlist?userId=${userId}`, {
+            const response = await axios.get(`https://ecommerce-api-shne.onrender.com/wishlist/getwishlist?userId=${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
