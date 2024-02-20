@@ -82,6 +82,7 @@ function PetCareService() {
                     <div className='h-[45%] w-full bg-orange-400 bg-opacity-60 rounded-lg relative'>
     <video autoPlay loop muted className='w-full h-full object-cover rounded-lg'>
         <source src={vedio} type="video/mp4" />
+        
         {/* Add additional source elements for different video formats if needed */}
         Your browser does not support the video tag.
     </video>
