@@ -8,6 +8,7 @@ import { MdOutlinePets } from "react-icons/md";
 function Herosection() {
   return (
     <div className='w-full h-auto md:flex  justify-center items-center  mt-10'>
+<div class="gcse-search"></div>
       <div className='md:w-1/2 w-full text-9xl  p-10 md:h-96 h-auto '>
         <h1 className=''>
           <motion.span

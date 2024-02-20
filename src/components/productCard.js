@@ -14,7 +14,7 @@ function ProductCard({ image, title, category, price, addToCart, addToWishlist,p
   };
 
   return (
-    <div className='w-64 h-80 rounded-3xl relative overflow-hidden shadow-[10px_10px_30px_-10px_rgba(0,0,0,0.8)]' style={{ backgroundColor: "#00D2E5" }}>
+    <div className='w-64 h-80 rounded-3xl relative overflow-hidden shadow-[10px_10px_30px_-10px_rgba(0,0,0,0.8)] bg-opacity-30' style={{ backgroundColor: "#00D2E5" }}>
       <div className='w-full h-full relative z-[1] bg-opacity-20'>
         <div className='w-auto h-auto bottom-[50%] right-10 bg-transparent absolute'>
           <div className='w-full h-full relative flex flex-col justify-end'>

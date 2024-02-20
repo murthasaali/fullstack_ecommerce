@@ -46,7 +46,7 @@ export const addToCart = async (productId) => {
       {
         headers: {
           Authorization: `Bearer ${token}`, // Ensure 'Bearer' prefix is included
-        },
+        },  
       }
     );
 
@@ -65,3 +65,55 @@ export const fetchData = async () => {
       throw new Error('Error fetching products: ' + error.message);
     }
   };
+
+  
+export const removeFromCart = async (productId) => {
+  try {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    console.log(userId)
+
+    if (!token) {
+      console.error('Token is not available');
+      return;
+    }
+
+    const response = await axios.delete(
+      `http://localhost:3001/cart/remove-from-cart/${productId}?userId=${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    
+
+    console.log(response);
+    toast.success(response.data.message);
+  } catch (error) {
+    console.error('Error removing from cart:', error.message);
+    toast.error(error.message);
+  }
+};
+
+export const getCartProduct = async (setData) => {
+  try {
+    const userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+
+    if (!userId || !token) {
+      console.log("User ID or token is missing from localStorage.");
+      return;
+    }
+
+    const response = await axios.get(`http://localhost:3001/cart/getcart?userId=${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    console.log("response", response.data);
+    setData(response.data); // Update data state variable
+  } catch (error) {
+    console.log("error", error);
+  }
+};

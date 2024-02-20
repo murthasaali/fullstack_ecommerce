@@ -37,3 +37,28 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: pink; 
 }
+/* Example CSS styles for the Google Custom Search */
+.gcse-search {
+  margin: 20px 0;
+}
+
+input.gsc-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 100%;
+}
+
+input.gsc-search-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input.gsc-search-button:hover {
+  background-color: #0056b3;
+}

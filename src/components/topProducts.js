@@ -22,11 +22,14 @@ function TopProducts() {
     fetchProducts();
   }, []);
   return (
-    <div className='p-2 w-full h-auto  bg-pink-200    flex flex-col justify-start items-center  z-30 rounded-t-3xl' >
+    <div className='p-2 w-full h-auto     flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
+      background: 'rgb(238,174,202)',
+      background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+    }} >
 
       <Chevron />
-      <h1 className='font-bold text-center bg-black sticky top-0 border-black border text-white px-10 py-2 rounded-full' style={{ backgroundColor: "#F5CFCF" }}>
-        Top products
+      <h1 className=' text-center bg-stone-100 bg-opacity-60 font-thin sticky top-0   px-10 py-2 rounded-full'>
+        top products
       </h1>
       {/* Render the fetched products */}
       <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-8 mt-5">
@@ -47,6 +50,8 @@ function TopProducts() {
         ))
       }
       </div>
+      <div class="gcse-search"></div>
+
     </div>
   );
 }

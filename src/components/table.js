@@ -1,8 +1,11 @@
 import React from 'react';
 import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
 import { MdClose } from 'react-icons/md';
+import { getCartProduct, removeFromCart } from '../utils/userServices';
 
-function Table({ data }) {
+function Table({ data,setData }) {
+  
+
   const renderSkeleton = () => {
     const skeletons = Array.from({ length: 5 }, (_, index) => (
       <tr className='rounded-full mt-6 w-auto h-24 animate-pulse ' key={index}>
@@ -27,7 +30,12 @@ function Table({ data }) {
           data.map((item, index) => (
             <tr className='rounded-full mt-3 w-auto h-24 relative ' key={index}>
               <button className='absolute right-0'>
-                <MdClose className='text-xl hover:rotate-180' />
+                <MdClose className='text-xl hover:rotate-180' onClick={()=>{
+                  console.log(item.productId._id)
+
+                  removeFromCart(item.productId._id)
+                  getCartProduct(setData)
+                }} />
               </button>
               <td><img src={item.productId.image} className='md:h-16 h-10 w-10 md:w-16 rounded-2xl' /></td>
               <td>

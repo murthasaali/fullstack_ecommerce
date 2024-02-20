@@ -13,7 +13,10 @@ import cutting from '../assets/grom.png'
 import star from '../assets/star.png'
 function PetCareService() {
     return (<>
-        <div className='md:p-10  p-0  w-full bg-pink-200   bg flex flex-col items-center  justify-start  z-30 rounded-t-3xl md:h-screen h-auto'>
+        <div className='md:p-10  p-0  w-full    bg flex flex-col items-center  justify-start  z-30 rounded-t-3xl md:h-screen h-auto' style={{
+      background: 'rgb(238,174,202)',
+      background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
+    }}>
            
             <Chevron />
             <img src={crak} className='w-32 h-24 absolute right-10' alt="crak" />

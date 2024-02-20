@@ -7,11 +7,13 @@ import {motion} from "framer-motion"
 import { container,item } from '../constants/framermotion';
 import { MdClose } from 'react-icons/md';
 import {useNavigate} from 'react-router-dom'
+import AvatarModal from './modal';
 function Navbar() {
   const [search, setSearch] = useState(false);
   const [searchData, setSearchData] = useState([]);
   const [products, setProducts] = useState([]);
   const [string, setString] = useState("");
+  const [open, setOpen] = useState(false);
   const nav=useNavigate()
 
   const fetchData = async () => {
@@ -49,11 +51,11 @@ function Navbar() {
     <nav className='w-full h-20 backdrop-blur-sm p-4 flex justify-between items-center md:px-20 fixed  top-0 z-40'>
       <div className='w-14 h-14 md:flex hidden' style={{ backgroundImage: `url(${icon})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}></div>
       <div className='w-40 h-5 md:flex hidden justify-center items-center gap-5'>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>home</button>
+        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/")}>home</button>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>contact</button>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>shop</button>
         <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/cart")}>cart</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("wishlist")}>wishlist</button>
+        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/wishlist")}>wishlist</button>
       </div>
       <div className='flex gap-5'>
         <div className='w-auto h-auto flex items-center px-10 justify-evenly gap-2 rounded-full py-1 pl-4 bg-white'>
@@ -70,11 +72,8 @@ function Navbar() {
 />
   </button>
         </div>
-        <div className="avatar">
-          <div className="md:w-14 w-10 rounded-full">
-            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="avatar" />
-          </div>
-        </div>
+        <AvatarModal setOpen={setOpen} open={open}/>
+
         {
           searchData.length>0&&
           <motion.div
@@ -86,7 +85,7 @@ function Navbar() {
         variants={item}
       
       
-        key={product.id} className="text-black bg-opacity-75 bg-yellow-400 p-1 mt-1 rounded-lg flex justify-start items-center">
+        key={product.id} className="text-black bg-opacity-75 bg-stone-50  p-1 mt-1 rounded-lg flex justify-start items-center">
           <motion.button >{product.name}</motion.button>
           {/* Add additional product information as needed */}
         </motion.div>
