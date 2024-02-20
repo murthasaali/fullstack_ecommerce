@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import AdminSidemenu from '../components/adminSidemenu';
 
 function Users() {
@@ -9,7 +9,7 @@ function Users() {
     // Fetch list of users from backend API
     const fetchUsers = async () => {
       try {
-        const response = await Axios.get('http://localhost:3001/products/getallusers');
+        const response = await axios.get('http://localhost:3001/products/getallusers');
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error.message);

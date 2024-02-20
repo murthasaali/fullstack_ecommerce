@@ -1,5 +1,5 @@
 import React, { useState ,useEffect} from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useParams  } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const AddProduct = () => {
   useEffect(() => {
     const getaProduct = async () => {
       try {
-        const response = await Axios.get(`http://localhost:3001/products/getaproduct/${id}`);
+        const response = await axios.get(`http://localhost:3001/products/getaproduct/${id}`);
         setItem(response.data.data);
       } catch (error) {
         console.error("Error fetching product:", error.message);
