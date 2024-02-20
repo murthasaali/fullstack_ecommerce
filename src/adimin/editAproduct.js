@@ -14,7 +14,7 @@ const EditProduct = () => {
         const fetchProduct = async () => {
           try {
             const productId = id // Replace with the actual product ID
-            const response = await Axios.get(`http://localhost:3001/admin/getaproduct/${productId}`);
+            const response = await axios.get(`http://localhost:3001/admin/getaproduct/${productId}`);
             setProduct(response.data.data);
             console.log(response.data.data)
           } catch (error) {

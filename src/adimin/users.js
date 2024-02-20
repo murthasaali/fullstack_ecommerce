@@ -6,6 +6,7 @@ function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    
     // Fetch list of users from backend API
     const fetchUsers = async () => {
       try {
