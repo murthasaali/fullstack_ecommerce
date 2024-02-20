@@ -80,12 +80,11 @@ function PetCareService() {
                         <img src={cutting} className='md:h-48 md:w-72 h-16 w-52 absolute right-[20%] bottom-0' alt=''/>
                     </div >
                     <div className='h-[45%] w-full bg-orange-400 bg-opacity-60 rounded-lg relative'>
-    <video autoPlay loop muted className='w-full h-full object-cover rounded-lg'>
+    {/* <video autoPlay loop muted className='w-full h-full object-cover rounded-lg'>
         <source src={vedio} type="video/mp4" />
         
-        {/* Add additional source elements for different video formats if needed */}
         Your browser does not support the video tag.
-    </video>
+    </video> */}
     <img src={dogsmile} className='md:h-36 md:w-32 h-18 w-14 absolute right-0 bottom-0' alt='' />
     <button className='absolute bottom-0 left-0 mb-2 ml-2 flex items-center gap-3 text-white'>
         <MdPlayCircle className='text-4xl hover:text-stone-500 transition-all duration-300 text-stone-200' /> Play Video
