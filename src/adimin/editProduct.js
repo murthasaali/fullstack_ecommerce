@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from 'react';
 import Axios from 'axios';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
-import { useNavigate,useParams  } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
 
 const AddProduct = () => {
     const [item,setItem]=useState([])
@@ -29,7 +29,6 @@ const AddProduct = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
-  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -71,6 +70,8 @@ const AddProduct = () => {
       console.error('Error:', error.message);
     }
   };
+
+  console.log(item,imageUrl)
   
 
   return (

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaIcon } from 'react-fa-icon';
 import { MdDeleteOutline, MdEdit } from 'react-icons/md';
 import AdminSidemenu from '../components/adminSidemenu';
 import {useNavigate} from 'react-router-dom'

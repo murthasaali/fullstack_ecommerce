@@ -6,11 +6,8 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './home';
-import Shop from './shop';
-import Toaster from 'react-hot-toast'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

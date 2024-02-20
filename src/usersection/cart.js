@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { FaHeart } from 'react-icons/fa6';
-import ProductCard from '../components/productCard';
-import { addToWishlist, getCartProduct } from '../utils/userServices';
+import {  getCartProduct } from '../utils/userServices';
 import Table from '../components/table';
 import Total from '../components/total';
 import Navbar from '../components/navbar';
@@ -20,7 +17,6 @@ function UserCart() {
 
   return (
     <div className='w-full h-screen md:p-3 flex flex-col items-center  ' style={{
-      background: 'rgb(238,174,202)',
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }}>
 

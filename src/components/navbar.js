@@ -15,7 +15,7 @@ function Navbar() {
   const [string, setString] = useState("");
   const [open, setOpen] = useState(false);
   const nav=useNavigate()
-
+  console.log(search)
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost:3001/admin/get');

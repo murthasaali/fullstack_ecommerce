@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDeleteLeft, FaMinus, FaPlus } from 'react-icons/fa6';
+import {  FaMinus, FaPlus } from 'react-icons/fa6';
 import { MdClose } from 'react-icons/md';
 import { getCartProduct, removeFromCart } from '../utils/userServices';
 
@@ -37,7 +37,7 @@ function Table({ data,setData }) {
                   getCartProduct(setData)
                 }} />
               </button>
-              <td><img src={item.productId.image} className='md:h-16 h-10 w-10 md:w-16 rounded-2xl' /></td>
+              <td><img src={item.productId.image} className='md:h-16 h-10 w-10 md:w-16 rounded-2xl' alt='product'/></td>
               <td>
                 <span className='font-bold'>{item.productId.name}</span>
                 <p>{item.productId.price}</p>

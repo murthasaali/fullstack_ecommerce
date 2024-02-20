@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Chevron from './chevron';
-import axios from 'axios';
-import { FaCartPlus, FaHeart } from 'react-icons/fa6';
-import { config } from '../axios/userConfig';
-import toast from 'react-hot-toast'
+import { FaHeart } from 'react-icons/fa6';
 import ProductCard from './productCard';
 import { addToCart, addToWishlist, fetchData } from '../utils/userServices';
 function TopProducts() {
@@ -23,7 +20,6 @@ function TopProducts() {
   }, []);
   return (
     <div className='p-2 w-full h-auto     flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
-      background: 'rgb(238,174,202)',
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }} >
 

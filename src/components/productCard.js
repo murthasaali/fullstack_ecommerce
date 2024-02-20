@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCartArrowDown, FaHeart } from 'react-icons/fa';
+import { FaCartArrowDown } from 'react-icons/fa';
 
 function ProductCard({ image, title, category, price, addToCart, addToWishlist,productId,icon ,isCart}) {
   const handleAddToCart = () => {
@@ -8,10 +8,10 @@ function ProductCard({ image, title, category, price, addToCart, addToWishlist,p
     addToCart(productId);
   };
 
-  const handleAddToWishlist = () => {
-    // Call addToWishlist function with productId or any other necessary data
-    addToWishlist(productId);
-  };
+  // const handleAddToWishlist = () => {
+  //   // Call addToWishlist function with productId or any other necessary data
+  //   addToWishlist(productId);
+  // };
 
   return (
     <div className='w-64 h-80 rounded-3xl relative overflow-hidden shadow-[10px_10px_30px_-10px_rgba(0,0,0,0.8)] bg-opacity-30' style={{ backgroundColor: "#00D2E5" }}>

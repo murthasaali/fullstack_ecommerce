@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
-import { config } from '../axios/userConfig'
 import ProductCard from '../components/productCard';
 import { MdClose } from 'react-icons/md';
 import { addToCart, addToWishlist } from '../utils/userServices';
@@ -39,7 +38,6 @@ function UserWishlist() {
   return (
     <div className='w-full flex justify-center items-center h-screen '
     style={{
-      background: 'rgb(238,174,202)',
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }}>
       <Navbar/>
@@ -47,7 +45,7 @@ function UserWishlist() {
         {
         product.map((item, index) => (
           <ProductCard
-            key={index}
+            key={item.productId._id}
             title={item.productId.name}
             image={item.productId.image}
             category={item.productId.category}

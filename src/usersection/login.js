@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -29,7 +29,7 @@ console.log(token)
       
       
       alert(message)
-      if(response.status==400){
+      if(response.status===400){
         alert("already exist")
       }
       // Update the state with the new user
@@ -53,7 +53,6 @@ navigate('/')
   }
   return (
     <div className=' h-screen w-screen flex justify-center items-center' style={{
-      background: 'rgb(238,174,202)',
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }}>
       <div className="flex  flex-col justify-center w-full h-full    py-12 lg:px-8">
@@ -76,7 +75,7 @@ navigate('/')
               <div className="flex items-center justify-between">
                 <label className="block  px-3 text-sm font-medium leading-6 text-gray-900">Password</label>
                 <div className="text-sm">
-                  <a  className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                  <button  className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</button>
                 </div>
               </div>
               <div className="mt-2">

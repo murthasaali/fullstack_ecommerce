@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import hero from '../assets/hero.png'; // Assuming this is your image file
 import Button from './button';
-import { FaCartArrowDown } from 'react-icons/fa6';
 import { MdOutlinePets } from "react-icons/md";
 
 function Herosection() {

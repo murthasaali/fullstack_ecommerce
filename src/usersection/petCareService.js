@@ -4,9 +4,8 @@ import groom from '../assets/haircut.png'
 import { motion } from 'framer-motion';
 import Chevron from '../components/chevron';
 import crak from '../assets/frames/frame1.png';
-import { MdArrowForward, MdPause, MdPlayCircle } from 'react-icons/md';
+import { MdArrowForward, MdPlayCircle } from 'react-icons/md';
 import Button from '../components/button';
-import { FaHouse } from 'react-icons/fa6';
 import { MdOutlinePets } from "react-icons/md";
 import dogsmile from '../assets/frames/dogsmile.png'
 import cutting from '../assets/grom.png'
@@ -14,7 +13,6 @@ import star from '../assets/star.png'
 function PetCareService() {
     return (<>
         <div className='md:p-10  p-0  w-full    bg flex flex-col items-center  justify-start  z-30 rounded-t-3xl md:h-screen h-auto' style={{
-      background: 'rgb(238,174,202)',
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }}>
            

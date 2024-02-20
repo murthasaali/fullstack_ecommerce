@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { FaChevronCircleRight } from 'react-icons/fa';
 import {motion} from 'framer-motion'
-import { container  } from '../constants/framermotion';
 import { varients } from '../constants/variants';
 function Total({totalAmount}) {
 

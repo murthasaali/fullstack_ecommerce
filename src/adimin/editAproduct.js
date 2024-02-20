@@ -4,6 +4,7 @@ import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useNavigate,useParams } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';
 import Round from '../styleComponents/round';
+import { item } from '../constants/framermotion';
 
 
 const EditProduct = () => {
@@ -22,7 +23,7 @@ const EditProduct = () => {
         };
     
         fetchProduct();
-      }, []);
+      }, [id]);
     console.log(id)
     const [formData, setFormData] = useState({
     image: '',
@@ -79,7 +80,7 @@ const EditProduct = () => {
     }
   };
   
-  console.log(product)
+  console.log(item,imageUrl,navigate)
 
   return (
     <div className='bg-white justify-start items-start  flex p-1    flex-col w-full h-screen focus:outline-none '>

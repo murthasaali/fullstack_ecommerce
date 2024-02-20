@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
-import { useNavigate } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';
 import Round from '../styleComponents/round';
 
@@ -19,7 +18,7 @@ const AddProduct = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
-  const navigate = useNavigate();
+  console.log(imageUrl)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

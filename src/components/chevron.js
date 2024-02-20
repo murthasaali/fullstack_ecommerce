@@ -1,8 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaChevronUp } from 'react-icons/fa6';
-import { MdMouse } from 'react-icons/md';
-
 function Chevron() {
   return (
     <motion.button
