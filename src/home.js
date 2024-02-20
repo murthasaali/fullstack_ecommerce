@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
 // import Navbar1 from './navbar'
-import Cart from './cart'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Shop from './shop'
-import Home1 from './home1'
-import Dogshop from './dogshop'
 import { createContext } from 'react'
-import { ProductData } from './productdata'
-import Showproduct from './Showproduct'
-import Admin from './admin'
 import {Toaster} from "react-hot-toast"
 import AddProduct from './adimin/addProduct'
 import AllProducts from './adimin/allProducts'
@@ -30,7 +23,6 @@ function Home() {
   const [search, setSearch] = useState(false)
   const [iscart, setisCart] = useState(false)
   const [names, setNames] = useState("")
-  const [addpro, setAddpro] = useState(ProductData)
   const [pass, setpass] = useState([])
   const [login, setLogin] = useState(false)
   const [pop, setPop] = useState(false)
@@ -47,7 +39,7 @@ function Home() {
   return (
     <>
         <mycontext.Provider value={{
-          addpro, setAddpro, pop, shops,setShops,search,setSearch,login, setLogin, ProductData, pass, setpass, carts, prof, setProf, setCarts,names,setNames,iscart,setisCart,setPop
+            pop, shops,setShops,search,setSearch,login, setLogin, pass, setpass, carts, prof, setProf, setCarts,names,setNames,iscart,setisCart,setPop
         }}>
        
           <Toaster
@@ -57,7 +49,6 @@ function Home() {
                
           <Routes>
             <Route path='/' element={<LandingPge />} />
-            <Route path='/admin' element={<Admin />} />
             <Route path='/admin/add' element={<AddProduct />} />
             <Route path='/admin/all' element={<AllProducts />} />
             <Route path='/admin/dashboard' element={<Dashboard />} />
@@ -74,9 +65,6 @@ function Home() {
             
             {/* <Route path='/cart' element={<Cart />} /> */}
            
-            <Route path='/catshop' element={<Shop />} />
-            <Route path='/dogshop' element={<Dogshop />} />
-            <Route path='/showproduct/:id' element={<Showproduct />} />
             
           </Routes>
         </mycontext.Provider>

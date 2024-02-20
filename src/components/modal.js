@@ -5,6 +5,7 @@ import { RiLoginCircleLine } from "react-icons/ri";
 import {useDispatch} from "react-redux"
 import {useNavigate} from "react-router-dom"
 import { logout } from '../redux/authSlice';
+
 function AvatarModal({ setOpen, open }) {
   const onCloseModal = () => setOpen(false);
   const token=localStorage.getItem("token")

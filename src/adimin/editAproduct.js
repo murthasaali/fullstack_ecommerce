@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import Axios from 'axios';
-import bg from '../example.png';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useNavigate,useParams } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';
 import Round from '../styleComponents/round';
+
 
 const EditProduct = () => {
     const { id } = useParams();

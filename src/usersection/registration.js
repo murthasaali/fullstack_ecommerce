@@ -14,7 +14,7 @@ export function Registration() {
 
     try {
       // Make a POST request to your server to handle registration
-      const response = await axios.post('http://localhost:3001/auth/register', {
+      const response = await axios.post('https://ecommerce-api-shne.onrender.com/auth/register', {
         email:email,
         password:password,
       });

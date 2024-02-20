@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import bg from '../example.png';
 import uploadToCloudinary from '../utils/cloudinaryUpload';
 import { useNavigate } from 'react-router-dom';
 import AdminSidemenu from '../components/adminSidemenu';

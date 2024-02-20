@@ -16,7 +16,7 @@ console.log(token)
     console.log(email,password)
     try {
       // Make a POST request to your server to handle registration
-      const response = await axios.post('http://localhost:3001/auth/login', {
+      const response = await axios.post('https://ecommerce-api-shne.onrender.com/auth/login', {
         email:email,
         password:password,
       });
