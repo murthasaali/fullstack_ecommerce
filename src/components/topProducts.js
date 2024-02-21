@@ -19,7 +19,7 @@ function TopProducts() {
     fetchProducts();
   }, []);
   return (
-    <div className='p-2 w-full h-auto     flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
+    <div className='p-2 w-full h-screen     flex flex-col justify-start items-center  z-30 rounded-t-3xl' style={{
       background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
     }} >
 
