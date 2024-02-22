@@ -13,6 +13,7 @@ import { Registration } from './usersection/registration'
 import UserCart from './usersection/cart'
 import UserWishlist from './usersection/wishlist'
 import EditProduct from './adimin/editAproduct'
+import Community from './usersection/community'
 
 export const mycontext = createContext()
 function Home() {
@@ -42,6 +43,7 @@ function Home() {
             <Route path='/admin/edit/:id' element={<EditProduct />} />
                <Route path='/login' element={<Login />} />
                <Route path='/reg' element={<Registration />} />
+               <Route path='/community' element={<Community />} />
                <Route path='/cart' element={<UserCart/>} />
                <Route path='/wishlist' element={<UserWishlist/>} />
 

@@ -51,11 +51,11 @@ function Navbar() {
     <nav className='w-full h-20 backdrop-blur-sm p-4 flex justify-between items-center md:px-20 fixed  top-0 z-40'>
       <div className='w-14 h-14 md:flex hidden' style={{ backgroundImage: `url(${icon})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}></div>
       <div className='w-40 h-5 md:flex hidden justify-center items-center gap-5'>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/")}>home</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>contact</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black'>shop</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/cart")}>cart</button>
-        <button className='py-2 hover:border-b-2 translate-x-1 hover:border-black' onClick={()=>nav("/wishlist")}>wishlist</button>
+        <button className='py-1 px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1  hover:bg-stone-100 hover:bg-opacity-40 ' onClick={()=>nav("/")}>home</button>
+        <button className='py-1 px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1 hover:bg-stone-100 hover:bg-opacity-40 ' onClick={()=>nav("/community")}>community</button>
+        <button className='py-1 px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1 hover:bg-stone-100 hover:bg-opacity-40 '>shop</button>
+        <button className='py-1 px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1 hover:bg-stone-100 hover:bg-opacity-40 ' onClick={()=>nav("/cart")}>cart</button>
+        <button className='py-1 px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1 hover:bg-stone-100 hover:bg-opacity-40 ' onClick={()=>nav("/wishlist")}>wishlist</button>
       </div>
       <div className='flex gap-5'>
         <div className='w-auto h-auto flex items-center px-10 justify-evenly gap-2 rounded-full py-1 pl-4 bg-stone-50 bg-opacity-60'>
