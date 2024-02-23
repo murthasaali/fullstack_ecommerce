@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import { FaHeart, FaHouse, FaUser } from 'react-icons/fa6';
-import { MdEdit } from 'react-icons/md';
+import { MdChat, MdEdit, MdSaveAlt, MdShare } from 'react-icons/md';
 import { FiAlignCenter } from "react-icons/fi";
 import { FaDotCircle, FaSearch } from 'react-icons/fa';
 import { getAllPosts } from '../utils/communityServices';
@@ -9,12 +9,22 @@ function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
 
+    const handleDownload = (image) => {
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'image.jpg'; // specify the filename here
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
     useEffect(()  => {
         const fetchPosts = async () => {
             try {
                 const res = await getAllPosts();
                 console.log("data", res);
-                setPosts(res.latestPosts); // Assuming `latestPosts` is the key containing posts in your response
+                setPosts(res.latestPosts); 
+                // Assuming `latestPosts` is the key containing posts in your response
             } catch (error) {
                 console.error('Error fetching posts:', error);
             }
@@ -22,6 +32,8 @@ function Community() {
 
         fetchPosts();
     }, [])
+
+    console.log("posts",posts)
     
 
     const renderContent = () => {
@@ -47,50 +59,48 @@ function Community() {
 
                     </div>
                 </div>
-                    <div className='w-full    h-auto p-1 flex flex-col '>
+                  
+                {
+    posts.map((item) => {
+        return (
+            <div className='w-full    h-auto p-1 flex flex-col ' key={item._id}>
 
-                        <div className='w-full  h-16  flex justify-between items-center'>
-                            <div className=' flex items-end gap-[10px]'>
-                                <div className='w-10 h-10  bg-white rounded-full'>
-
-                                </div>
-                                <span>hihello</span>
-                            </div>
-                            <div className='flex items-center gap-3'>
-
-                                <spa>14 h</spa>
-                                <button><FaDotCircle /></button>
-
-
-                            </div>
+                <div className='w-full  h-16  flex justify-between items-center'>
+                    <div className=' flex items-end gap-[10px]'>
+                        <div className='w-10 h-10  bg-white rounded-full'>
 
                         </div>
-                        <div className='w-full md:h-96 h-56 bg-stone-50 bg-opacity-50  border-s-[1px] rounded-3xl'> </div>
+                        <span className='text-xs'>{item.postedBy?item.postedBy.email:"nothing"}</span>
+                    </div>
+                    <div className='flex items-center gap-3'>
+
+                        <span>14 h</span>
+                        <button><FaDotCircle /></button>
 
 
                     </div>
-                    <div className='w-full    h-auto p-1 flex flex-col '>
 
-                        <div className='w-full  h-16  flex justify-between items-center'>
-                            <div className=' flex items-end gap-[10px]'>
-                                <div className='w-10 h-10  bg-white rounded-full'>
-
-                                </div>
-                                <span>hihello</span>
-                            </div>
-                            <div className='flex items-center gap-3'>
-
-                                <spa>14 h</spa>
-                                <button><FaDotCircle /></button>
-
-
-                            </div>
-
-                        </div>
-                        <div className='w-full md:h-96 h-56 bg-stone-50 bg-opacity-50  border-s-[1px] rounded-3xl'> </div>
-
+                </div>
+                <div className='w-full md:h-96 h-56 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex justify-center items-center'>
+                    <img src={item.image} alt='posts' className='h-[60%] rounded-lg w-[60%]'/>
+                    <div className='w-auto h-[80%] p-3 bg-stone-50 bg-opacity-50 absolute right-2 flex flex-col justify-around'>
+<button> <FaHeart/></button>
+<button> <MdChat/></button>
+<button> <MdShare/></button>
+<button onClick={()=>handleDownload(item.image)}>
+        <MdSaveAlt /> 
+      </button>
+                        
 
                     </div>
+                </div>
+
+
+            </div>
+        );
+    })
+}
+
                 </>;
             case 'search':
                 return <div>Search content here</div>;
