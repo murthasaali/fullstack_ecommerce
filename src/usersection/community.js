@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { FaHeart, FaHouse, FaUser } from 'react-icons/fa6';
 import { MdEdit } from 'react-icons/md';
 import { FiAlignCenter } from "react-icons/fi";
 import { FaDotCircle, FaSearch } from 'react-icons/fa';
+import { getAllPosts } from '../utils/communityServices';
 
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
+    const [posts, setPosts] = useState([]);
+
+    useEffect(()  => {
+        const fetchPosts = async () => {
+            try {
+                const res = await getAllPosts();
+                console.log("data", res);
+                setPosts(res.latestPosts); // Assuming `latestPosts` is the key containing posts in your response
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        };
+
+        fetchPosts();
+    }, [])
+    
 
     const renderContent = () => {
         switch (activeButton) {
@@ -30,7 +47,29 @@ function Community() {
 
                     </div>
                 </div>
-                    <div className='w-full   mt-2 h-auto p-1 flex flex-col '>
+                    <div className='w-full    h-auto p-1 flex flex-col '>
+
+                        <div className='w-full  h-16  flex justify-between items-center'>
+                            <div className=' flex items-end gap-[10px]'>
+                                <div className='w-10 h-10  bg-white rounded-full'>
+
+                                </div>
+                                <span>hihello</span>
+                            </div>
+                            <div className='flex items-center gap-3'>
+
+                                <spa>14 h</spa>
+                                <button><FaDotCircle /></button>
+
+
+                            </div>
+
+                        </div>
+                        <div className='w-full md:h-96 h-56 bg-stone-50 bg-opacity-50  border-s-[1px] rounded-3xl'> </div>
+
+
+                    </div>
+                    <div className='w-full    h-auto p-1 flex flex-col '>
 
                         <div className='w-full  h-16  flex justify-between items-center'>
                             <div className=' flex items-end gap-[10px]'>
@@ -67,7 +106,7 @@ function Community() {
     };
 
     return (
-        <div className='w-full h-screen flex flex-col justify-start items-center ' style={{
+        <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden ' style={{
             background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
         }}>
             <div className='w-full h-20  mb-2  bg-opacity-60 flex justify-between px-3 items-center'>
@@ -84,7 +123,7 @@ function Community() {
 
             </div>
             <div className='w-full h-full  flex justify-center p-2'>
-                <div className=' h-full bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-3'>
+                <div className=' h-[600px] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-3'>
                     {renderContent()}
                 </div>
             </div>
