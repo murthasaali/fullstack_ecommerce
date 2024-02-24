@@ -39,7 +39,7 @@ function Community() {
     const renderContent = () => {
         switch (activeButton) {
             case 'house':
-                return <> <div className='w-full h-auto flex gap-2 border-black border-b-[1px] py-2'>
+                return <> <div className='w-full h-auto flex gap-2 border-black border-b-[1px] py-2 px-'>
                     <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
 
                     </div>
@@ -143,7 +143,7 @@ function Community() {
             </div>
         
             <div className='w-full h-full  flex justify-center p-2'>
-                <div className=' md:h-[600px] h-[100%]  bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-3'>
+            <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-4' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {renderContent()}
                 </div>
             </div>
