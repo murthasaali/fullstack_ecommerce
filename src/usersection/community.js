@@ -7,6 +7,7 @@ import { getAllPosts } from '../utils/communityServices';
 import Search from '../components/search';
 import Notification from '../components/notification';
 import Account from '../components/account';
+import pro from '../assets/star.png'
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
@@ -41,7 +42,7 @@ function Community() {
     const renderContent = () => {
         switch (activeButton) {
             case 'house':
-                return <> <div className='w-full h-auto flex gap-2 border-black border-b-[1px] py-2 px-'>
+                return <> <div className='w-full h-auto flex gap-2 border-black border-b-[1px] py-2 '>
                     <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
 
                     </div>
@@ -65,12 +66,12 @@ function Community() {
                 {
     posts.map((item) => {
         return (
-            <div className='w-full    h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
+            <div className='w-full pb-20    h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
 
                 <div className='w-full  h-16  flex justify-between items-center'>
                     <div className=' flex items-end gap-[10px]'>
-                        <div className='w-10 h-10  bg-white rounded-full'>
-
+                        <div className='w-10 h-10  bg-white rounded-full overflow-hidden'>
+                            <img src={item.postedBy?item.postedBy.image:pro} className='h-full w-[150%] '  alt='postedby'/>
                         </div>
                         <span className='text-xs'>{item.postedBy?item.postedBy.email:"nothing"}</span>
                     </div>
@@ -83,9 +84,10 @@ function Community() {
                     </div>
 
                 </div>
-                <div className='w-full md:h-[420px]  h-64 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
+                <div className='w-full md:h-[500px]  h-96 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
                     <div className='text-xs'>{item.caption}</div>
-                    <img src={item.image} alt='posts' className='h-[70%] rounded-lg w-[70%]'/>
+                    <img src={item.image} alt='posts' className='h-[70%] rounded-lg w-[90%]'/>
+                    <div className='text-xs'>{item.hashtag}</div>
                     <div className='w-auto h-[80%] p-3 bg-stone-50 bg-opacity-50 absolute right-2 flex flex-col justify-around rounded-lg'>
 <button> <FaHeart/></button>
 <button> <MdChat/></button>
