@@ -4,7 +4,9 @@ import { MdChat, MdEdit, MdSaveAlt, MdShare } from 'react-icons/md';
 import { FiAlignCenter } from "react-icons/fi";
 import { FaDotCircle, FaSearch } from 'react-icons/fa';
 import { getAllPosts } from '../utils/communityServices';
-
+import Search from '../components/search';
+import Notification from '../components/notification';
+import Account from '../components/account';
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
@@ -104,13 +106,13 @@ function Community() {
 
                 </>;
             case 'search':
-                return <div>Search content here</div>;
+                return <><Search/></>;
             case 'edit':
-                return <div>Edit content here</div>;
+                return <><Notification/></>;
             case 'heart':
-                return <div>Heart content here</div>;
+                return <><Notification/></>;
             case 'user':
-                return <div>User content here</div>;
+                return <><Account/></>;
             default:
                 return null;
         }
