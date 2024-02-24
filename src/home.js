@@ -14,6 +14,7 @@ import UserCart from './usersection/cart'
 import UserWishlist from './usersection/wishlist'
 import EditProduct from './adimin/editAproduct'
 import Community from './usersection/community'
+import Bottombar from './components/bottombar'
 
 export const mycontext = createContext()
 function Home() {
@@ -32,7 +33,8 @@ function Home() {
         position="top-center"
         reverseOrder={false}
       />
-               
+
+               <Bottombar/>
           <Routes>
             <Route path='/' element={<LandingPge />} />
             <Route path='/admin/add' element={<AddProduct />} />

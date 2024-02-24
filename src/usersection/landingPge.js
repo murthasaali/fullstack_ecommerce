@@ -4,6 +4,7 @@ import Herosection from '../components/herosection'
 import Catogeries from '../components/catogeries'
 import TopProducts from '../components/topProducts'
 import PetCareService from './petCareService'
+import Bottombar from '../components/bottombar'
 
 function LandingPge() {
     return (
@@ -21,6 +22,7 @@ function LandingPge() {
            
             <PetCareService/>
             <TopProducts/>
+            <Bottombar/>
         </div>
     )
 }
