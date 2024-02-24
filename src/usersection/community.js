@@ -81,9 +81,10 @@ function Community() {
                     </div>
 
                 </div>
-                <div className='w-full md:h-96 h-56 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex justify-center items-center'>
+                <div className='w-full md:h-96  h-56 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
+                    <div className='text-xs'>{item.caption}</div>
                     <img src={item.image} alt='posts' className='h-[60%] rounded-lg w-[60%]'/>
-                    <div className='w-auto h-[80%] p-3 bg-stone-50 bg-opacity-50 absolute right-2 flex flex-col justify-around'>
+                    <div className='w-auto h-[80%] p-3 bg-stone-50 bg-opacity-50 absolute right-2 flex flex-col justify-around rounded-lg'>
 <button> <FaHeart/></button>
 <button> <MdChat/></button>
 <button> <MdShare/></button>
@@ -119,7 +120,15 @@ function Community() {
         <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden ' style={{
             background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
         }}>
-            <div className='w-full h-20  mb-2  bg-opacity-60 flex justify-between px-3 items-center'>
+            <div className='w-full backdrop-blur-lg h-auto p-2 flex md:hidden justify-evenly absolute bottom-0 z-50'>
+            <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'house' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('house')}><FaHouse /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'search' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('search')}><FaSearch /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'edit' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('edit')}><MdEdit /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'heart' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('heart')}><FaHeart /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'user' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('user')}><FaUser /></button>
+            </div>
+            <div className='w-full h-20  mb-2 hidden md:flex bg-opacity-60  justify-between px-3 items-center'>
+
 
                 <div className='text-white text-xl font-thin'>pethouse</div>
                 <div className='h-fit w-full md:w-[500px]   md:flex hidden  justify-evenly items-center'>
@@ -132,8 +141,9 @@ function Community() {
                 <button className='text-white  font-thin text-3xl'><FiAlignCenter /></button>
 
             </div>
+        
             <div className='w-full h-full  flex justify-center p-2'>
-                <div className=' h-[600px] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-3'>
+                <div className=' md:h-[600px] h-[100%]  bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-3'>
                     {renderContent()}
                 </div>
             </div>
