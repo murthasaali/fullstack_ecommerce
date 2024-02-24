@@ -65,7 +65,7 @@ function Community() {
                 {
     posts.map((item) => {
         return (
-            <div className='w-full    h-auto p-1 flex flex-col ' key={item._id}>
+            <div className='w-full    h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
 
                 <div className='w-full  h-16  flex justify-between items-center'>
                     <div className=' flex items-end gap-[10px]'>
@@ -83,9 +83,9 @@ function Community() {
                     </div>
 
                 </div>
-                <div className='w-full md:h-96  h-56 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
+                <div className='w-full md:h-[420px]  h-64 bg-stone-50 bg-opacity-50  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
                     <div className='text-xs'>{item.caption}</div>
-                    <img src={item.image} alt='posts' className='h-[60%] rounded-lg w-[60%]'/>
+                    <img src={item.image} alt='posts' className='h-[70%] rounded-lg w-[70%]'/>
                     <div className='w-auto h-[80%] p-3 bg-stone-50 bg-opacity-50 absolute right-2 flex flex-col justify-around rounded-lg'>
 <button> <FaHeart/></button>
 <button> <MdChat/></button>
@@ -144,8 +144,8 @@ function Community() {
 
             </div>
         
-            <div className='w-full h-full  flex justify-center p-2'>
-            <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center p-4' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className='w-full h-full  flex justify-center p-0'>
+            <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center md:p-4 p-1' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {renderContent()}
                 </div>
             </div>

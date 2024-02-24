@@ -5,7 +5,7 @@ const Search = () => {
     const [searchDiv,setSearchDiv]=useState(false)
     return (
         <>
-        <div className="max-w-md mx-auto  w-full">
+        <div className="max-w-md mx-auto my-3  w-full">
             <div className="relative">
                 <input type="text" placeholder="Search" className="w-full bg-opacity-25  bg-stone-950 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200" />
                 <button onClick={()=>setSearchDiv(!searchDiv)} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-stone-50 focus:outline-none">
