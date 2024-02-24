@@ -30,16 +30,22 @@ function Account() {
     </div>
 
     <div className='w-full h-12 rounded-lg bg-white '></div>
-    <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  p-2">
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32"></div>
+    <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  ">
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-52 h-24"></div>
  
 </div>
     </div>

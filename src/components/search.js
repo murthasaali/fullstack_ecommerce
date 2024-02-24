@@ -18,22 +18,22 @@ const Search = () => {
         </div>
 {
     !searchDiv ?
-    <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  p-2">
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">1</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">2</div>
+    <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  ">
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">1</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">2</div>
     <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl row-span-2">3</div>
-    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">4</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">5</div>
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">1</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">2</div>
+    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center  text-3xl md:h-52 h-32">4</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">5</div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">1</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">2</div>
     <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl row-span-2">3</div>
-    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">4</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">5</div>
-    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">1</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">2</div>
+    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center  text-3xl md:h-52 h-32">4</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">5</div>
+    <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">1</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">2</div>
     <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl row-span-2">3</div>
-    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">4</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl md:h-62 h-32">5</div>
+    <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center  text-3xl md:h-52 h-32">4</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">5</div>
 </div>
 
 :<div className='w-full h-[90%]'>
