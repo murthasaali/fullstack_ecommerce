@@ -8,7 +8,7 @@ export const getAllPosts = async () => {
       const token=localStorage.getItem("token")
       console.log(token)
     // Send a GET request to the appropriate endpoint to fetch all posts
-    const response = await axios.get(`http://localhost:3001/posts/getposts`, {
+    const response = await axios.get(`https://ecommerce-api-shne.onrender.com/posts/getposts`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
