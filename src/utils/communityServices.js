@@ -29,7 +29,7 @@ export const likeaPost = async (postId) => {
 
     // Send a POST request to the appropriate endpoint to like the post
     const response = await axios.post(
-      `http://localhost:3001/posts/likepost`,
+      `https://ecommerce-api-shne.onrender.com/posts/likepost`,
       { postId }, // Sending postId in the request body
       {
         headers: {
@@ -56,7 +56,7 @@ export const getUserProfile = async () => {
     console.log(token);
 
     // Send a GET request to the appropriate endpoint to fetch user profile
-    const response = await axios.get(`http://localhost:3001/auth/getUserDetails/${userId}`, {
+    const response = await axios.get(`https://ecommerce-api-shne.onrender.com/auth/getUserDetails/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
