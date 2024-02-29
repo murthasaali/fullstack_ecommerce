@@ -3,7 +3,7 @@ import { FaHeart, FaHouse, FaUser } from 'react-icons/fa6';
 import { MdChat, MdEdit, MdSaveAlt, MdShare } from 'react-icons/md';
 import { FiAlignCenter } from "react-icons/fi";
 import { FaDotCircle, FaSearch } from 'react-icons/fa';
-import { getAllPosts } from '../utils/communityServices';
+import { getAllPosts, likeaPost } from '../utils/communityServices';
 import Search from '../components/search';
 import Notification from '../components/notification';
 import Account from '../components/account';
@@ -11,6 +11,7 @@ import pro from '../assets/star.png'
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
+    const [comment, setComment] = useState(true);
 
     const handleDownload = (image) => {
         const link = document.createElement('a');
@@ -69,11 +70,11 @@ function Community() {
                                 <div className='w-full pb-20    h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
 
 
-                                    <div className='w-full md:h-[500px]  h-[480px] bg-stone-50 bg-opacity-50 md:gap-4 gap-1  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
+                                    <div className='w-full md:h-[500px]  h-auto bg-stone-50 bg-opacity-50 md:gap-4 gap-1  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
 
                                     <div className='w-auto h-[80%] p-3  bg-opacity-50 absolute right-2 md:flex hidden flex-col justify-around rounded-lg'>
-                                        <button> <FaHeart /></button>
-                                        <button> <MdChat /></button>
+                                        <button> <FaHeart onClick={()=>likeaPost(item._id)}/></button>
+                                        <button> <MdChat onClick={()=>setComment(!comment)}/></button>
                                         <button> <MdShare /></button>
                                         <button onClick={() => handleDownload(item.image)}>
                                             <MdSaveAlt />
@@ -82,7 +83,7 @@ function Community() {
 
                                     </div>
 
-                                        <div className='w-full    flex justify-between items-center '>
+                                        <div className='w-full  h-auto  flex justify-between items-center '>
                                             <div className=' flex items-end gap-[10px]'>
                                                 <div className='w-10 h-10  bg-white rounded-full overflow-hidden'>
                                                     <img src={item.postedBy ? item.postedBy.image : pro} className='h-full w-[150%] ' alt='postedby' />
@@ -100,10 +101,10 @@ function Community() {
                                             </div>
 
                                         </div>
-                                        <img src={item.image} alt='posts' className='h-[68%] rounded-lg md:w-[90%] w-full ' />
+                                        <img src={item.image} alt='posts' className='h-[60%] md:h-[68%] rounded-lg md:w-[90%] w-full ' />
                                         <div className='w-full h-auto p-3 flex md:hidden    justify-around rounded-lg'>
-                                            <button> <FaHeart /></button>
-                                            <button> <MdChat /></button>
+                                            <button  onClick={()=>likeaPost(item._id)}> <FaHeart /></button>
+                                            <button> <MdChat onClick={()=>setComment(!comment)}/></button>
                                             <button> <MdShare /></button>
                                             <button onClick={() => handleDownload(item.image)}>
                                                 <MdSaveAlt />
@@ -111,6 +112,11 @@ function Community() {
                                         </div>
                                        <div> <div className='text-xs'>{item.caption}</div>
                                         <div className='text-xs'>{item.hashtag}</div></div>
+                                        <div key={comment._id} className=''>
+                                        {item.comments.map((comment) => (
+                                <div className='text-[11px]'>{comment.text}</div>
+                                ))}
+                                </div>
                                     </div>
                                   
 
