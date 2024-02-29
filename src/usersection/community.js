@@ -168,7 +168,7 @@ function Community() {
             </div>
 
             <div className='w-full h-full  flex justify-center p-0'>
-                <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center md:p-4 p-1' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center md:p-4 p-1 overflow-x-hidden' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {renderContent()}
                 </div>
             </div>

@@ -2,11 +2,12 @@ import React,{useEffect,useState} from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
 import { FaArrowDown, FaDiceThree, FaPlus } from 'react-icons/fa6'
 import { getUserProfile } from '../utils/communityServices'
+import SetProfileEditModal from './setProfileEditModal';
 
 function Account() {
     const [userProfile, setUserProfile] = useState({});
     const [userPOsts, setUserPosts] = useState([]);
-
+    const [open, setOpen] = useState(false);
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -23,6 +24,7 @@ function Account() {
     }, []);
   return (
     <div className='w-full h-full flex flex-col gap-4 p-2'>
+   
         <div className='w-full  flex justify-between items-center'>
 
             <div className='flex items-center  gap-1 text-xl'><span>{userProfile.email?userProfile.email:"none  "}</span> <FaArrowDown className='text-xs'/></div>
@@ -56,18 +58,19 @@ function Account() {
 
     </div>
     <div className='w-full flex  gap-1'>
-        <button className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 text-center font-bold'> edit profile</button>
+        <div className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>    <SetProfileEditModal setOpen={setOpen} open={open}/></div>
+
         <button className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>share profile</button>
 
     </div>
 
-    <div className='w-full h-12 rounded-lg bg-white '></div>
+
     <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  ">
    {
-    userPOsts.map((post)=>(
-        <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32" style={{backgroundImage:`url(${post.image})`,backgroundPosition:"center",backgroundSize:"cover"}}></div>
-    ))
-   }
+       userPOsts.map((post)=>(
+           <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32" style={{backgroundImage:`url(${post.image})`,backgroundPosition:"center",backgroundSize:"cover"}}></div>
+           ))
+        }
    
    
  
