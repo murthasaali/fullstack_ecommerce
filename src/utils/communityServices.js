@@ -47,3 +47,27 @@ export const likeaPost = async (postId) => {
     throw error; // Re-throw the error to be caught by the caller
   }
 };
+
+// Function to fetch user profile
+export const getUserProfile = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    console.log(token);
+
+    // Send a GET request to the appropriate endpoint to fetch user profile
+    const response = await axios.get(`http://localhost:3001/auth/getUserDetails/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    // Return the data from the response
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    // Handle any errors
+    console.error('Error fetching user profile:', error);
+    throw error; // Re-throw the error to be caught by the caller
+  }
+};

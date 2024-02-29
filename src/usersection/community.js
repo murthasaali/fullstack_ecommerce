@@ -8,6 +8,7 @@ import Search from '../components/search';
 import Notification from '../components/notification';
 import Account from '../components/account';
 import pro from '../assets/star.png'
+import {format} from  'timeago.js'
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
@@ -94,7 +95,7 @@ function Community() {
                                             </div>
                                             <div className='flex items-center gap-3'>
 
-                                                <span>14 h</span>
+                                                <span className='text-[10px]'>{item.createdAt?format(item.createdAt):"none"}</span>
                                                 <button><FaDotCircle /></button>
 
 
