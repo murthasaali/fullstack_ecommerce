@@ -2,7 +2,6 @@
 import React from 'react';
 import groom from '../assets/haircut.png'
 import { motion } from 'framer-motion';
-import Chevron from '../components/chevron';
 import crak from '../assets/frames/frame1.png';
 import { MdArrowForward, MdPlayCircle } from 'react-icons/md';
 import Button from '../components/button';

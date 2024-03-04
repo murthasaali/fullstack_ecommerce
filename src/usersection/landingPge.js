@@ -21,7 +21,7 @@ function LandingPge() {
             </div>
            
             <PetCareService/>
-            <TopProducts/>
+            {/* <TopProducts/> */}
             <Bottombar/>
         </div>
     )

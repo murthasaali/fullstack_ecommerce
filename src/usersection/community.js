@@ -9,6 +9,7 @@ import Notification from '../components/notification';
 import Account from '../components/account';
 import pro from '../assets/star.png'
 import {format} from  'timeago.js'
+import Unfollowlist from '../components/unfollowlist';
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
@@ -27,7 +28,7 @@ function Community() {
         const fetchPosts = async () => {
             try {
                 const res = await getAllPosts();
-                console.log("data", res);
+                console.log("data", res.latestPosts);
                 setPosts(res.latestPosts);
                 // Assuming `latestPosts` is the key containing posts in your response
             } catch (error) {
@@ -44,31 +45,15 @@ function Community() {
     const renderContent = () => {
         switch (activeButton) {
             case 'house':
-                return <> <div className='w-full h-auto flex gap-2  py-3 '>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                    <div className='md:w-20 w-12 md:h-20 h-12 rounded-full bg-stone-50 bg-opacity-25 border-black '>
-
-                    </div>
-                </div>
+                return <> 
+                   
 
                     {
-                        posts.map((item) => {
+                        posts.map((item,index) => {
                             return (
-                                <div className='w-full pb-20    h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
+                                <>
+                                 {item.email==="murthasaalick123@gmail.com"&&console.log(true)}
+                                <div className='w-auto     h-auto p-1 flex flex-col mx-[10px]' key={item._id}>
 
 
                                     <div className='w-full md:h-[500px]  h-auto bg-stone-50 bg-opacity-50 md:gap-4 gap-1  border-s-[1px] relative rounded-3xl flex flex-col justify-center px-4 items-start'>
@@ -115,14 +100,17 @@ function Community() {
                                         <div className='text-xs'>{item.hashtag}</div></div>
                                         <div key={comment._id} className=''>
                                         {item.comments.map((comment) => (
-                                <div className='text-[11px]'>{comment.text}</div>
-                                ))}
+                                            <div className='text-[11px]'>{comment.text}</div>
+                                            ))}
                                 </div>
+
                                     </div>
                                   
 
 
                                 </div>
+                           
+                                            </>
                             );
                         })
                     }
@@ -142,9 +130,9 @@ function Community() {
     };
 
     return (
-        <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden ' style={{
+        <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden  ' style={{
             background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
-        }}>
+          }} >
             <div className='w-full backdrop-blur-lg h-auto p-2 flex md:hidden justify-evenly absolute bottom-0 z-50'>
                 <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'house' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('house')}><FaHouse className='hover:scale-125 transition-all duration-300 ' /></button>
                 <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'search' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('search')}><FaSearch className='hover:scale-125 transition-all duration-300 ' /></button>
@@ -168,7 +156,7 @@ function Community() {
             </div>
 
             <div className='w-full h-full  flex justify-center p-0'>
-                <div className='md:h-[600px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center md:p-4 p-1 overflow-x-hidden' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className='md:h-[650px] h-[100%] bg-stone-100 bg-opacity-40 rounded-xl w-full md:w-[750px] overflow-y-scroll flex flex-col justify-start items-center md:p-4 p-1' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {renderContent()}
                 </div>
             </div>
