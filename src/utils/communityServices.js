@@ -22,6 +22,9 @@ export const getAllPosts = async () => {
     throw error; // Re-throw the error to be caught by the caller
   }
 };
+
+
+
 export const likeaPost = async (postId) => {
   try {
     const token = localStorage.getItem("token");
@@ -69,6 +72,32 @@ export const getUserProfile = async () => {
   } catch (error) {
     // Handle any errors
     console.error('Error fetching user profile:', error);
+    throw error; // Re-throw the error to be caught by the caller
+  }
+};
+
+export const deletePost = async (postId) => {
+  try {
+    const token = localStorage.getItem("token");
+    console.log(postId);
+
+    // Send a DELETE request to the appropriate endpoint to delete the post
+    const response = await axios.delete(
+      `https://ecommerce-api-shne.onrender.com/posts/delete/${postId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    // Return the data from the response
+    console.log(response.data);
+    
+    return response.data;
+  } catch (error) {
+    // Handle any errors
+    console.error('Error deleting the post:', error);
     throw error; // Re-throw the error to be caught by the caller
   }
 };

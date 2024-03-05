@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaPlusSquare } from 'react-icons/fa';
 import { FaArrowDown, FaDiceThree, FaPlus } from 'react-icons/fa6';
-import { getUserProfile } from '../utils/communityServices';
+import { deletePost, getUserProfile } from '../utils/communityServices';
 import SetProfileEditModal from './setProfileEditModal';
 import { CiCirclePlus } from "react-icons/ci";
 import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
@@ -103,7 +103,7 @@ function Account() {
   </div>
   <ul tabIndex={0} className="dropdown-content z-[1] flex flex-col overflow-hidden  p-0  shadow backdrop-blur-lg text-white text-[10px] md:xs rounded-box w-20">
     <button className='w-full h-full hover:bg-stone-50 hover:bg-opacity-10  transition-all duration-300'><a>edit</a></button>
-    <button className='w-full h-full hover:bg-stone-50 hover:bg-opacity-10  transition-all duration-300'><a>delete</a></button>
+    <button className='w-full h-full hover:bg-stone-50 hover:bg-opacity-10  transition-all duration-300' onClick={()=>deletePost(post._id)}><a>delete</a></button>
   </ul>
 </div>
           </div>
