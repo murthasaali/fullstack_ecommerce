@@ -3,6 +3,8 @@ import { FaPlusSquare } from 'react-icons/fa';
 import { FaArrowDown, FaDiceThree, FaPlus } from 'react-icons/fa6';
 import { getUserProfile } from '../utils/communityServices';
 import SetProfileEditModal from './setProfileEditModal';
+import { CiCirclePlus } from "react-icons/ci";
+import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
 
 function Account() {
   const [userProfile, setUserProfile] = useState({});
@@ -35,14 +37,14 @@ function Account() {
   const renderUserProfile = () => (
     <div className='w-full h-full flex flex-col gap-4 p-2'>
     <div className='w-full flex justify-between items-center'>
-      <div className='flex items-center  gap-1 text-xl'>
+      <button className='flex items-center  gap-1 text-xl'>
         <span>{userProfile.email ? userProfile.email : 'none  '}</span>{' '}
         <FaArrowDown className='text-xs' />
-      </div>
-      <div className='flex items-center  gap-3  text-xs'>
-        <FaPlusSquare className='text-black ' />{' '}
-        <FaDiceThree className='text-black ' />
-      </div>
+      </button>
+      <button className='flex items-center  gap-3  text-xs'>
+        <CiCirclePlus className='text-black text-2xl' />{' '}
+        <PiDotsThreeOutlineVerticalThin className='text-black text-2xl' />
+      </button>
     </div>
     <div className='w-full flex justify-between items-center'>
       <div
@@ -87,9 +89,24 @@ function Account() {
         userPosts.map((post) => (
           <div
             key={post._id}
-            className='bg-stone-50 rounded-lg bg-opacity-80 text-center text-3xl md:h-52 h-32'
+            className='bg-stone-50 relative rounded-lg bg-opacity-80 text-center text-3xl md:h-52 h-32'
             style={{ backgroundImage: `url(${post.image})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
-          ></div>
+          >
+            {/* <button  className=' absolute flex justify-end p-0 right-0 top-2'>
+
+       
+            </button> */}
+
+<div className="dropdown dropdown-end relative w-full h-full ">
+  <div tabIndex={0} role="button" className="absolute top-[1px] right-[3px]">
+  <PiDotsThreeOutlineVerticalThin className='text-white text-md'/>
+  </div>
+  <ul tabIndex={0} className="dropdown-content z-[1] flex flex-col overflow-hidden  p-0  shadow backdrop-blur-lg text-white text-[10px] md:xs rounded-box w-20">
+    <button className='w-full h-full hover:bg-stone-50 hover:bg-opacity-10  transition-all duration-300'><a>edit</a></button>
+    <button className='w-full h-full hover:bg-stone-50 hover:bg-opacity-10  transition-all duration-300'><a>delete</a></button>
+  </ul>
+</div>
+          </div>
         ))
         }
     </div>

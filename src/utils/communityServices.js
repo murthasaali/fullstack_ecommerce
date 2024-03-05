@@ -40,6 +40,7 @@ export const likeaPost = async (postId) => {
 
     // Return the data from the response
     console.log(response.data);
+    
     return response.data;
   } catch (error) {
     // Handle any errors

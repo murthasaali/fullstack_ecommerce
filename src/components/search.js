@@ -21,7 +21,13 @@ const Search = () => {
     <div className="grid-container grid w-full grid-cols-3 md:gap-2 gap-1  ">
     <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">1</div>
     <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">2</div>
-    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center py-20 text-3xl row-span-2">3</div>
+    <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl row-span-2">
+  <video autoPlay loop className=' md:h-full  w-full rounded-lg '>
+    <source src="https://player.vimeo.com/external/465125019.sd.mp4?s=e8f72776e65749b99be1f5caa451efcc1def65ec&profile_id=165&oauth2_token_id=57447761" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
     <div className="bg-stone-50 rounded-lg h-62 bg-opacity-80 text-center  text-3xl md:h-52 h-32">4</div>
     <div className="bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">5</div>
     <div className="item1 bg-stone-50 rounded-lg bg-opacity-80 text-center  text-3xl md:h-52 h-32">1</div>
