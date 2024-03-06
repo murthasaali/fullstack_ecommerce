@@ -18,7 +18,7 @@ function Unfollowlist() {
   }, []); // Empty dependency array to run the effect only once when the component mounts
 
   return (
-    <div className='w-full overflow-x-scroll h-52   gap-2 flex p-3  px-10   '>
+    <div className='w-full h-full p-3 flex flex-col justify-start items-start gap-2 '>
       {/* Render unfollowed users */}
       {unfollowedUsers.map(user => (
         <div key={user._id} className=' flex flex-col h-full w-full rounded-full items-center  bg-opacity border-black '>

@@ -21,13 +21,11 @@ function Account() {
         setUserProfile(profileData.user);
         setUserPosts(profileData.user.posts);
        
-        setTimeout(() => {
             setLoading(false); // Set loading to false when data is fetched
             
-        }, 2000);
        
       } catch (error) {
-        console.error('Error fetching user profile:', error);
+        console.error('Error fetching user pr ofile:', error);
         setLoading(false); // Set loading to false in case of error
       }
     };

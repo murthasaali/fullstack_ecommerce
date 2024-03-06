@@ -22,7 +22,7 @@ console.log(token)
       });
 
       // Assuming your server responds with the newly created user data
-      console.log(response)
+      console.log(response.data.id)
       const message=response.data.message
       dispatch(setToken(response.data.data))
       dispatch(setUserid(response.data.id))
