@@ -5,11 +5,13 @@ import { deletePost, getUserProfile } from '../utils/communityServices';
 import SetProfileEditModal from './setProfileEditModal';
 import { CiCirclePlus } from "react-icons/ci";
 import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
+import CreatePost from './createPost';
 
 function Account() {
   const [userProfile, setUserProfile] = useState({});
   const [userPosts, setUserPosts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [createPost, setCreatePOst] = useState(false);
   const [loading, setLoading] = useState(true); // State to manage loading status
 
   useEffect(() => {
@@ -42,9 +44,9 @@ function Account() {
         <FaArrowDown className='text-xs' />
       </button>
       <button className='flex items-center  gap-3  text-xs'>
-        <CiCirclePlus className='text-black text-2xl' />{' '}
-        <PiDotsThreeOutlineVerticalThin className='text-black text-2xl' />
+      <CreatePost setOpen={setCreatePOst} open={createPost}/>
       </button>
+        <PiDotsThreeOutlineVerticalThin className='text-black text-2xl' />
     </div>
     <div className='w-full flex justify-between items-center'>
       <div
@@ -79,6 +81,7 @@ function Account() {
     <div className='w-full flex  gap-1'>
       <div className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>
         <SetProfileEditModal setOpen={setOpen} open={open} />
+    
       </div>
       <button className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>share profile</button>
     </div>
