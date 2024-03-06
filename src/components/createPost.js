@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-import { RiLoginCircleLine } from "react-icons/ri";
+import { RiArrowDropLeftLine, RiLoginCircleLine, RiSendBackward } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { CiCirclePlus } from "react-icons/ci";
 import { useForm } from "react-hook-form";
@@ -73,14 +73,15 @@ function CreatePost({ setOpen, open }) {
           <RiLoginCircleLine className='text-white' />
         </button>
       }
-      <Modal open={open} onClose={onCloseModal} center classNames={{ modal: 'bg-transparent rounded-lg backdrop-blur-md ', closeButton: 'text-white' }}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <Modal open={open} onClose={()=>setOpen(true)} onOverlayClick={()=>setOpen(true)} closeIcon=" " center classNames={{ modal: 'bg-transparent rounded-lg backdrop-blur-md ', closeButton: 'text-white' }}>
+        <form onSubmit={handleSubmit(onSubmit)} >
+          <button onClick={onCloseModal} className='border border-stone-50 p-1 rounded-full'><RiArrowDropLeftLine className='text-2xl text-white '/></button>
           <div className='w-full h-full flex flex-col'>
               <input className='w-1/2 h-8 bg-transparent border rounded-full mt-4' type='file' onChange={handleFileChange} />
             <div className='w-full mt-2 rounded-xl h-32' style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-            <input {...register("hashtag")} className='w-full text-xs font-thin px-2  h-8 bg-transparent  rounded-full mt-4' placeholder='Hashtag.....' />
-            <input {...register("caption")} className='w-full text-xs font-thin px-2  h-8 bg-transparent  rounded-full mt-4' placeholder='Caption.....' />
-            <div className='w-full p-2 mt-2 flex gap-1'>
+            <input {...register("hashtag")} className='w-full  text-white text-xs font-thin px-2  h-8 bg-transparent  rounded-full mt-4' placeholder='Hashtag.....' />
+            <input {...register("caption")} className='w-full text-white text-xs font-thin px-2  h-8 bg-transparent  rounded-full mt-4' placeholder='Caption.....' />
+            <div className='w-full p-2 mt-2 flex gap-1 text-white'>
               <button type="reset" className='w-1/2 py-1 text-white px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1  hover:bg-stone-100 hover:bg-opacity-40'>Reset</button>
               <button type="submit" className='w-1/2 py-1 text-white px-3 transition-all duration-300 rounded-full hover:border-b-2 translate-x-1  hover:bg-stone-100 hover:bg-opacity-40'>Submit</button>
             </div>
