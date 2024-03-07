@@ -1,30 +1,96 @@
-import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { io } from 'socket.io-client';
+import axios from 'axios';
+import { BiCheckDouble } from "react-icons/bi";
+import { format } from 'timeago.js'
+const socket = io('http://localhost:3001'); // Replace with your server URL
 
 function Chat() {
-  const userId = localStorage.getItem("userId");
-  console.log(userId);
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState('');
+  const [chattedUsers, setChattedUsers] = useState([]);
+
+  useEffect(() => {
+    // Listen for incoming messages from the server
+    socket.on('message', (data) => {
+      setMessages((prevMessages) => [...prevMessages, data]);
+      console.log(data);
+    });
+
+    // Fetch chatted users when component mounts
+    fetchChattedUsers();
+
+    return () => {
+      // Clean up socket connection when component unmounts
+      socket.off('message');
+    };
+  }, []);
+
+  // Function to fetch chatted users
+  const fetchChattedUsers = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:3001/messages/getchattedusers', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setChattedUsers(response.data.uniqueChattedUsers);
+      console.log(response.data.uniqueChattedUsers)
+    } catch (error) {
+      console.error('Error fetching chatted users:', error);
+    }
+  };
+
+  const sendMessage = () => {
+    if (inputMessage.trim() !== '') {
+      const newMessage = {
+        senderId: localStorage.getItem('userId'),
+        receiverId: '65d4aa9bf8eabcb3707fd65e', // Replace with the receiver's ID
+        message: inputMessage,
+      };
+      socket.emit('message', newMessage);
+      setInputMessage('');
+    }
+  };
+
+
+
+
 
   return (
-    <div className='w-full bg-stone-50 bg-opacity-30 h-full p-3   justify-start items-start overflow-y-auto'>
-      {/* <div className="relative">
-                <input type="text" placeholder="Search" className="w-full bg-opacity-25   bg-transparent rounded-full px-4 py-2 focus:outline-none focus:border-stone-500 focus:ring focus:ring-blue-200" />
-                <button  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-stone-50 focus:outline-none">
-                   <FaSearch/>
-                </button>
-            </div> */}
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      <div className='w-full mt-2 rounded-full h-16 bg-red-700'></div>
-      {/* Add more red divs  mt-2 rounded-fullhere */}
+    <div className="w-full h-auto ">
+      <div className="messages">
+        {messages.map((message, index) => (
+          <div key={index} className="message hidden">
+            <p>{message.message}</p>
+            <span>{message.receiverId}</span>
+          </div>
+        ))}
+      </div> 
+       <div className="input-container hidden">
+        <input
+          type="text"
+          value={inputMessage}
+          className='hidden'
+          onChange={(e) => setInputMessage(e.target.value)}
+        />
+        <button onClick={sendMessage}>Send</button>
+      </div>
+        <button  className="w-full flex flex-col justify-center px-3  items-start ">
+          {chattedUsers.map((user, index) => (
+            <button key={index} className=' px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-50'>
+              <img src={user.userId.image} className='w-14 h-14 rounded-full'/>
+              <div className='w-auto flex flex-col'>
+                <div className='text-xs'>{user.userId.email} </div>
+                <div className='text-xs text-start flex items-end'> <BiCheckDouble className='text-xl text-blue-400'/> last message </div>
+
+              </div>
+              <div className='right-2 absolute md:text-xs text-[8px] '>{format(user.lastChatTime)}</div>
+
+              </button>
+          ))}
+        </button>
     </div>
   );
 }
