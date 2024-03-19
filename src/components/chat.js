@@ -3,12 +3,17 @@ import { io } from 'socket.io-client';
 import axios from 'axios';
 import { BiCheckDouble } from "react-icons/bi";
 import { format } from 'timeago.js'
+import UserChatModal from './userChatModal';
+import Unfollowlist from './unfollowlist';
+
 const socket = io('http://localhost:3001'); // Replace with your server URL
 
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [chattedUsers, setChattedUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null); // Track selected user
+  const [modalOpen, setModalOpen] = useState(false); // State for modal
 
   useEffect(() => {
     // Listen for incoming messages from the server
@@ -30,7 +35,8 @@ function Chat() {
   const fetchChattedUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://ecommerce-api-shne.onrender.com/messages/getchattedusers', {
+      console.log(token)
+      const response = await axios.get('http://localhost:3001/messages/getchattedusers', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,10 +60,6 @@ function Chat() {
     }
   };
 
-
-
-
-
   return (
     <div className="w-full h-auto ">
       <div className="messages">
@@ -77,20 +79,21 @@ function Chat() {
         />
         <button onClick={sendMessage}>Send</button>
       </div>
-        <button  className="w-full flex flex-col justify-center px-3  items-start ">
-          {chattedUsers.map((user, index) => (
-            <button key={index} className=' px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-50'>
+
+        <button className="w-full flex flex-col justify-center px-3 items-start ">
+          {chattedUsers.length>0?chattedUsers.map((user, index) => (
+            <button key={index} onClick={() => { setSelectedUser(user.userId); setModalOpen(true); }} className='px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-50'>
               <img src={user.userId.image} className='w-14 h-14 rounded-full'/>
               <div className='w-auto flex flex-col'>
                 <div className='text-xs'>{user.userId.email} </div>
                 <div className='text-xs text-start flex items-end'> <BiCheckDouble className='text-xl text-blue-400'/> last message </div>
 
               </div>
-              <div className='right-2 absolute md:text-xs text-[8px] '>{format(user.lastChatTime)}</div>
-
-              </button>
-          ))}
+              <div className='right-2 absolute text-xs '>{format(user.lastChatTime)}</div>
+            </button>
+          )):<Unfollowlist/>}
         </button>
+          {selectedUser && <UserChatModal item={selectedUser} open={modalOpen} setOpen={setModalOpen} user={selectedUser}  sendMessage={sendMessage}/>}
     </div>
   );
 }

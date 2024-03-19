@@ -6,10 +6,12 @@ import { FaDotCircle } from 'react-icons/fa';
 import { getAllPosts, likeaPost } from '../utils/communityServices';
 import { format } from 'timeago.js'
 import UserProfileModal from '../components/userProfileModal';
+import UserChatModal from './userChatModal';
 function CommunityPosts() {
     const [posts, setPosts] = useState([]);
     const [comment, setComment] = useState(true);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null); // Track selected user
+    const [modalOpen, setModalOpen] = useState(false); // State for modal
 
 
     const handleDownload = (image) => {
@@ -48,10 +50,10 @@ function CommunityPosts() {
 {
                         posts.map((item, index) => {
                             return (
-                                <>
+                                <div className='relative' >
                                 
                                     {item.email === "murthasaalick123@gmail.com" && console.log(true)}
-                                    <div className='w-full  backdrop-blur-lg    h-fit p-1 flex flex-col gap-2 ' key={item._id}>
+                                    <div className='w-full  backdrop-cyan-600    h-fit p-1 flex flex-col gap-2 '  key={index}>
 
 
                                         <div className='w-full md:h-[450px]   h-auto  bg-opacity-50 md:gap-4 gap-1  border-[1px] backdrop-blur-sm relative rounded-3xl flex flex-col  justify-center px-4 items-center md:items-start'>
@@ -76,9 +78,9 @@ function CommunityPosts() {
 
                                             <div className='w-full  h-auto  flex justify-between items-center mt-2'>
                                                 <div className=' flex items-end gap-[10px] bg-transparent'>
-                                                <UserProfileModal setOpen={setModalIsOpen} open={modalIsOpen}  userData={userData} />
+                                                <img src={item.postedBy.image} className='h-14  w-14 rounded-full'/>
 
-                                                    <span className='text-xs'>{item.postedBy ? item.postedBy.email : "nothing"}</span>
+                                                    <span className='text-xs'  onClick={() => {  setModalOpen(true); setSelectedUser(item) ; console.log("selected user",selectedUser)}} >{item.postedBy ? item.postedBy.email : "nothing"}</span>
 
 
                                                 </div>
@@ -92,15 +94,24 @@ function CommunityPosts() {
 
                                             </div>
                                             <div
-                                                className="h-80 md:h-[500px] rounded-lg md:w-[90%] w-80 "
-                                               
-                                                style={{
-                                                    backgroundImage: `url(${item.image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center',
-                                                    backgroundRepeat: 'no-repeat'
-                                                }}
-                                            ></div>
+    className="h-80 md:h-[500px] rounded-lg md:w-[90%] w-80"
+    style={{
+        backgroundImage: `url(${item.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    }}
+>
+    <div className='w-full relative h-full bg-gray-950 text-xl bg-opacity-30 rounded-lg'> 
+        <div className='absolute left-2 text-white bottom-2'>
+            <div className='text-xs'>{item.caption}</div>
+            <div className='font-light'>{item.hashtag}</div>
+        </div>
+    </div>
+</div>
+
+
+
                                             <div className='w-full h-auto p-3 flex md:hidden    justify-around rounded-lg'>
                                                 <button onClick={() => likeaPost(item._id)}> <CiHeart /></button>
                                                 <button> <MdChat onClick={() => setComment(!comment)} /></button>
@@ -109,12 +120,11 @@ function CommunityPosts() {
                                                     <MdSaveAlt />
                                                 </button>
                                             </div>
-                                            <div> <div className='text-xs'>{item.caption}</div>
-                                                <div className='text-xs'>{item.hashtag}</div></div>
+                                          
                                             <div key={comment._id} className=''>
                                                 {item.comments.map((comment) => (
                                                     <div className='text-[11px]'>{comment.text}</div>
-                                                ))}
+                                                    ))}
                                             </div>
 
                                         </div>
@@ -122,8 +132,11 @@ function CommunityPosts() {
 
 
                                     </div>
+                                    <input className='bottom-0 right-0'/>
 
-                                </>
+
+                                    {selectedUser&&<div className='w-full  bg-white'><UserChatModal setOpen={setModalOpen} open={modalOpen}  item={item.postedBy} /></div>}
+                                </div>
                             );
                         })
                     }
