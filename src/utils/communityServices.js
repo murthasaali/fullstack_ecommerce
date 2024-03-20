@@ -14,7 +14,7 @@ export const getAllPosts = async () => {
         }
       });
     // Return the data from the response
-    console.log(response.data)   
+    // console.log(response.data)   
     return response.data;
   } catch (error) {
     // Handle any errors
@@ -80,7 +80,7 @@ export const deletePost = async (postId) => {
   try {
     const token = localStorage.getItem("token");
     console.log(postId);
-
+    
     // Send a DELETE request to the appropriate endpoint to delete the post
     const response = await axios.delete(
       `https://ecommerce-api-shne.onrender.com/posts/delete/${postId}`,
@@ -99,5 +99,48 @@ export const deletePost = async (postId) => {
     // Handle any errors
     console.error('Error deleting the post:', error);
     throw error; // Re-throw the error to be caught by the caller
+  }
+};
+
+export const getAllcomments = async (postId) => {
+  try {
+    const token = localStorage.getItem("token");
+    console.log("postidp",postId);
+
+    // Send a DELETE request to the appropriate endpoint to delete the post
+    const response = await axios.get(
+      `http://localhost:3001/posts/getAllComment/${postId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    // Return the data from the response
+    console.log(response.data);
+    
+    return response.data.comments;
+  } catch (error) {
+    // Handle any errors
+    console.error('Error getting comments:', error);
+  }
+};
+
+
+export const commentPost = async (postId, text) => {
+  try {
+    const token = localStorage.getItem("token");
+    const response = await axios.post('http://localhost:300/posts/commentpost', {
+      postId: postId,
+      text: text
+    },      {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return response.data; // Return the response data if needed
+  } catch (error) {
+    throw error; // Throw error if request fails
   }
 };
