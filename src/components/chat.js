@@ -82,7 +82,7 @@ function Chat() {
 
         <button className="w-full flex flex-col justify-center px-3 items-start ">
           {chattedUsers.length>0?chattedUsers.map((user, index) => (
-            <button key={index} onClick={() => { setSelectedUser(user.userId); setModalOpen(true); }} className='px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-50'>
+            <button key={index} onClick={() => { setSelectedUser(user.userId); setModalOpen(true); }} className='px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-25 border-[2px]'>
               <img src={user.userId.image} className='w-14 h-14 rounded-full'/>
               <div className='w-auto flex flex-col'>
                 <div className='text-xs'>{user.userId.email} </div>

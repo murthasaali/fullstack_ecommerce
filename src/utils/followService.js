@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export const getAllUnfollowedUsers = async (userId) => {
   try {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
+    
 
     const response = await axios.get(`http://localhost:3001/follows/unfollowusers/${userId}`, {
       headers: {
