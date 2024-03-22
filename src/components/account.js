@@ -8,7 +8,7 @@ import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
 import CreatePost from './createPost';
 
 function Account() {
-  const [userProfile, setUserProfile] = useState({});
+   const [userProfile, setUserProfile] = useState({});
   const [userPosts, setUserPosts] = useState([]);
   const [open, setOpen] = useState(false);
   const [createPost, setCreatePOst] = useState(false);
@@ -41,9 +41,7 @@ function Account() {
         <span>{userProfile.email ? userProfile.email : 'none  '}</span>{' '}
         <FaArrowDown className='text-xs' />
       </button>
-      <button className='flex items-center  gap-3  text-xs'>
-      <CreatePost setOpen={setCreatePOst} open={createPost}/>
-      </button>
+     
         <PiDotsThreeOutlineVerticalThin className='text-black text-2xl' />
     </div>
     <div className='w-full flex justify-between items-center'>
@@ -64,24 +62,25 @@ function Account() {
       </div>
       <div className='  flex flex-col justify-start items-center '>
         <div>{userProfile.followersCount ? userProfile.followersCount.length : '0'}</div>
-        <div>following</div>
+        <div>followers</div>
       </div>
       <div className='  flex flex-col justify-start items-center '>
         <div>{userProfile.followingCount ? userProfile.followingCount.length : '0'}</div>
-        <div>followers</div>
+        <div>following</div>
       </div>
     </div>
     <div className='w-full flex flex-col gap-1'>
-      <div className='p-3 w-44 rounded-lg bg-stone-50 bg-opacity-80'></div>
-      <div className='p-3 w-32 rounded-lg bg-stone-50 bg-opacity-80'></div>
-      <div className='p-3 w-44 rounded-lg bg-stone-50 bg-opacity-80'></div>
+      <div className='px-3 text-white font-thin w-fit py-1 rounded-lg  bg-stone-800 bg-opacity-40'>{userProfile.username}</div>
+      <div className='px-3 text-blue-500 font-extralight text-xs w-fit py-1 rounded-lg  bg-stone-800 bg-opacity-40'>{userProfile.bio}</div>
     </div>
-    <div className='w-full flex  gap-1'>
-      <div className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>
+    <div className='w-full flex justify-between text-xs  gap-1'>
+      <div className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40 font-thin'>
         <SetProfileEditModal setOpen={setOpen} open={open} />
     
       </div>
-      <button className='md:p-2 p-1 w-1/2 rounded-lg bg-stone-50 bg-opacity-80 font-bold'>share profile</button>
+      <button className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40    font-thin'>share profile</button>
+      <div className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40    font-thin'> <CreatePost setOpen={setCreatePOst} open={createPost}/></div>
+     
     </div>
     <div className='grid-container grid w-full grid-cols-3 md:gap-2 gap-1'>
       {/* Conditionally render skeleton loading or user posts */}

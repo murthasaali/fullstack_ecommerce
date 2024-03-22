@@ -82,27 +82,25 @@ function Community() {
     };
 
     return (
-        <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden  ' style={{
-            background: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
-        }} >
+        <div className='w-full h-screen  flex flex-col justify-start items-center overflow-hidden bg-black '  >
 
             <div className='w-full backdrop-blur-lg h-auto p-2 flex md:hidden justify-evenly absolute bottom-0 z-50'>
-                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'house' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('house')}><CiHome className='hover:scale-125 transition-all duration-300 ' /></button>
-                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'search' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('search')}><CiSearch className='hover:scale-125 transition-all duration-300 ' /></button>
-                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'edit' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('edit')}><CiChat1 className='hover:scale-125 transition-all duration-300 ' /></button>
-                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'heart' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('heart')}><CiHeart className='hover:scale-125 transition-all duration-300 ' /></button>
-                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'user' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('user')}><CiUser className='hover:scale-125 transition-all duration-300 ' /></button>
+                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'house' ? '' : ''}`} onClick={() => setActiveButton('house')}><CiHome className='hover:scale-125 transition-all duration-300 ' /></button>
+                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'search' ? '' : ''}`} onClick={() => setActiveButton('search')}><CiSearch className='hover:scale-125 transition-all duration-300 ' /></button>
+                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'edit' ? '' : ''}`} onClick={() => setActiveButton('edit')}><CiChat1 className='hover:scale-125 transition-all duration-300 ' /></button>
+                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'heart' ? '' : ''}`} onClick={() => setActiveButton('heart')}><CiHeart className='hover:scale-125 transition-all duration-300 ' /></button>
+                <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'user' ? '' : ''}`} onClick={() => setActiveButton('user')}><CiUser className='hover:scale-125 transition-all duration-300 ' /></button>
             </div>
-            <div className='w-full h-20  mb-2 hidden md:flex bg-opacity-60  justify-between px-3 items-center'>
+            <div className='w-full h-20  mb-2 hidden md:flex backdrop-blur-lg bg-transparent justify-between px-3 items-center'>
 
 
-                <div className='text-white text-xl font-thin'>pethouse</div>
+                <div className='text-white text-xl  font-thin'>pethouse</div>
                 <div className='h-fit w-full md:w-[500px]   md:flex hidden  justify-evenly items-center'>
-                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'house' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('house')}><CiHome className='hover:scale-125 transition-all duration-300 ' /></button>
-                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'search' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('search')}><CiSearch className='hover:scale-125 transition-all duration-300 ' /></button>
-                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'edit' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('edit')}><CiChat1 className='hover:scale-125 transition-all duration-300 ' /></button>
-                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'heart' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('heart')}><CiHeart className='hover:scale-125 transition-all duration-300 ' /></button>
-                    <button className={`h-fit p-3 rounded-xl bg-stone-50 bg-opacity-60 ${activeButton === 'user' ? 'bg-stone-500' : ''}`} onClick={() => setActiveButton('user')}><CiUser className='hover:scale-125 transition-all duration-300 ' /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-opacity-60 ${activeButton === 'house' ? '' : ''}`} onClick={() => setActiveButton('house')}><CiHome className='hover:scale-125 text-3xl transition-all duration-300 ' /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-opacity-60 ${activeButton === 'search' ? '' : ''}`} onClick={() => setActiveButton('search')}><CiSearch className='hover:scale-125 text-3xl transition-all duration-300 ' /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-opacity-60 ${activeButton === 'edit' ? '' : ''}`} onClick={() => setActiveButton('edit')}><CiChat1 className='hover:scale-125 text-3xl transition-all duration-300 ' /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-opacity-60 ${activeButton === 'heart' ? '' : ''}`} onClick={() => setActiveButton('heart')}><CiHeart className='hover:scale-125 text-3xl transition-all duration-300 ' /></button>
+                    <button className={`h-fit p-3 rounded-xl bg-opacity-60 ${activeButton === 'user' ? '' : ''}`} onClick={() => setActiveButton('user')}><CiUser className='hover:scale-125 text-3xl transition-all duration-300 ' /></button>
                 </div>
                 <button className='text-white  font-thin text-3xl'><FiAlignCenter /></button>
 

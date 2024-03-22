@@ -26,15 +26,15 @@ function CreatePost({ setOpen, open }) {
     uploadImage(file);
   };
 
-  const uploadImage = async (file) => {
-    try {
-      const imageUrl = await uploadToCloudinary(file);
-      setImageUrl(imageUrl);
-      console.log(imageUrl)
-    } catch (error) {
-      alert("Error uploading image:")
-    }
-  };
+    const uploadImage = async (file) => {
+      try {
+        const imageUrl = await uploadToCloudinary(file);
+        setImageUrl(imageUrl);
+        console.log(imageUrl)
+      } catch (error) {
+        alert("Error uploading image:")
+      }
+    };
 
   const onSubmit = async (data) => {
     try {
@@ -65,8 +65,8 @@ function CreatePost({ setOpen, open }) {
   return (
     <div>
       {token ?
-        <button className=" w-full rounded-full" onClick={() => setOpen(true)}>
-          <CiCirclePlus className='text-xl' />
+        <button className=" md:px-2 p-1 w-[100%] rounded-lg    font-thin" onClick={() => setOpen(true)}>
+          create post
         </button>
         :
         <button onClick={() => navigate("/login")} className='p-2 rounded-full bg-black text-xl'>

@@ -82,8 +82,8 @@ function Chat() {
 
         <button className="w-full flex flex-col justify-center px-3 items-start ">
           {chattedUsers.length>0?chattedUsers.map((user, index) => (
-            <button key={index} onClick={() => { setSelectedUser(user.userId); setModalOpen(true); }} className='px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2 bg-stone-100 bg-opacity-25 border-[2px]'>
-              <img src={user.userId.image} className='w-14 h-14 rounded-full'/>
+            <button key={index} onClick={() => { setSelectedUser(user.userId); setModalOpen(true); }} className='px-2 h-16 rounded-3xl gap-3 w-full relative flex justify-start items-center mt-2  bg-stone-800 bg-opacity-50'>
+              <img src={user.userId.image?user.userId.image:"https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} className='w-12 h-12 rounded-full'/>
               <div className='w-auto flex flex-col'>
                 <div className='text-xs'>{user.userId.email} </div>
                 <div className='text-xs text-start flex items-end'> <BiCheckDouble className='text-xl text-blue-400'/> last message </div>

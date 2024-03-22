@@ -15,6 +15,7 @@ import UserWishlist from './usersection/wishlist'
 import EditProduct from './adimin/editAproduct'
 import Community from './usersection/community'
 import Bottombar from './components/bottombar'
+import AnimatedCursor from "react-animated-cursor"
 
 export const mycontext = createContext()
 function Home() {
@@ -33,6 +34,7 @@ function Home() {
         position="top-center"
         reverseOrder={false}
       />
+      <AnimatedCursor/>
 
                <Bottombar/>
           <Routes>
