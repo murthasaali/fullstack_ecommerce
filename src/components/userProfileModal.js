@@ -2,20 +2,18 @@ import React from 'react';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { RiLoginCircleLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logout } from '../redux/authSlice';
 
 function UserProfileModal({ setOpen, open }) {
   const onCloseModal = () => setOpen(false);
   const token = localStorage.getItem("token");
   console.log(token);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
   return (
     <div > {/* Add a className to the parent container */}
       {token ?
+
+      
         <button className=" w-full rounded-full" onClick={() => setOpen(true)}>
           edit profile
         </button>

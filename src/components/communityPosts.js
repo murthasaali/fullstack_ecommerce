@@ -3,8 +3,6 @@ import { CiHeart } from "react-icons/ci";
 import { MdChat, MdSaveAlt, MdShare } from 'react-icons/md';
 import { FaDotCircle } from 'react-icons/fa';
 import { getAllcomments, getAllPosts, likeaPost } from '../utils/communityServices';
-import { format } from 'timeago.js';
-import UserProfileModal from '../components/userProfileModal';
 import UserChatModal from './userChatModal';
 import { BiLike } from 'react-icons/bi';
 import { motion } from 'framer-motion'
@@ -163,7 +161,6 @@ function CommunityPosts() {
                                         <p className='text-xs text-orange-500' onClick={() => { setModalOpen(true); setSelectedUser(item); console.log("selected user", selectedUser) }}>{item.postedBy.username ? item.postedBy.username : item.postedBy.email}</p>
                                     </div>
                                     <div className='flex items-center gap-3'>
-                                        <span className='text-[10px]'>{item.createdAt ? format(item.createdAt) : "none"}</span>
                                         <button><FaDotCircle /></button>
                                     </div>
                                 </div>

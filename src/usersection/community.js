@@ -5,39 +5,20 @@ import { CiUser, CiSearch, CiHome } from "react-icons/ci";
 import { CiChat1 } from "react-icons/ci";
 
 
-import { MdChat, MdSaveAlt, MdShare } from 'react-icons/md';
 import { FiAlignCenter } from "react-icons/fi";
-import { FaDotCircle } from 'react-icons/fa';
-import { getAllPosts, likeaPost } from '../utils/communityServices';
+import { getAllPosts } from '../utils/communityServices';
 import Search from '../components/search';
 import Notification from '../components/notification';
 import Account from '../components/account';
-import pro from '../assets/star.png'
-import { format } from 'timeago.js'
 import Chat from '../components/chat';
-import UserProfileModal from '../components/userProfileModal';
 import CommunityPosts from '../components/communityPosts';
 function Community() {
     const [activeButton, setActiveButton] = useState('house');
     const [posts, setPosts] = useState([]);
-    const [comment, setComment] = useState(true);
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
-    const handleDownload = (image) => {
-        const link = document.createElement('a');
-        link.href = image;
-        link.download = 'image.jpg'; // specify the filename here
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-    const userData = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        avatar: 'https://example.com/avatar.jpg',
-      };
+
+
 
     useEffect(() => {
         const fetchPosts = async () => {

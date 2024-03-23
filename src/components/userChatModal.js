@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-import { RiEmojiStickerFill, RiLoginCircleLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
+import {  RiLoginCircleLine } from "react-icons/ri";
+
 import { useNavigate } from "react-router-dom";
-import { logout } from '../redux/authSlice';
-import { format } from 'timeago.js'
-import { BiArrowFromLeft, BiChevronRight } from 'react-icons/bi';
+
 import axios from 'axios'; // Import Axios
 import io from 'socket.io-client'; // Import Socket.IO client library
 import { IoSend } from 'react-icons/io5';
@@ -73,10 +71,9 @@ function UserChatModal({ setOpen, open, item }) {
       }
       <Modal open={open} onClose={onCloseModal} center classNames={{ modal: 'bg-transparent p-3 rounded-lg backdrop-blur-md md:w-[500px] w-80 h-[550px]', closeButton: 'text-white' }}>
         <div className="fixed top-0 left-0 right-0 h-16 gap-2 flex w-full m-3">
-          <img src={item.image} className='w-12 h-12 rounded-full' />
+          <img src={item.image} className='w-12 h-12 rounded-full' alt={item.email}/>
           <div className='flex flex-col gap-1'>
             <div className='text-stone-200 text-opacity-70'>{item.email}</div>
-            <div className='text-white text-xs'>last seen at {" "}{format(item.lastChatTime)}</div>
           </div>
         </div>
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import axios from 'axios';
 import { BiCheckDouble } from "react-icons/bi";
-import { format } from 'timeago.js'
 import UserChatModal from './userChatModal';
 import Unfollowlist from './unfollowlist';
 
@@ -89,7 +88,7 @@ function Chat() {
                 <div className='text-xs text-start flex items-end'> <BiCheckDouble className='text-xl text-blue-400'/> last message </div>
 
               </div>
-              <div className='right-2 absolute text-xs '>{format(user.lastChatTime)}</div>
+              {/* <div className='right-2 absolute text-xs '>{format(user.lastChatTime)}</div> */}
             </button>
           )):<Unfollowlist/>}
         </button>

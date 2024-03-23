@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useEffect } from 'react';
 import { RiBubbleChartFill } from "react-icons/ri";
 import icon from '../assets/icon.png';

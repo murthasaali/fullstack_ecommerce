@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FaPlusSquare } from 'react-icons/fa';
-import { FaArrowDown, FaDiceThree, FaPlus } from 'react-icons/fa6';
+import { FaArrowDown, FaPlus } from 'react-icons/fa6';
 import { deletePost, getUserProfile } from '../utils/communityServices';
 import SetProfileEditModal from './setProfileEditModal';
-import { CiCirclePlus } from "react-icons/ci";
 import { PiDotsThreeOutlineVerticalThin } from "react-icons/pi";
 import CreatePost from './createPost';
 

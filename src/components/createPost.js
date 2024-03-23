@@ -3,7 +3,6 @@ import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { RiArrowDropLeftLine, RiLoginCircleLine, RiSendBackward } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { CiCirclePlus } from "react-icons/ci";
 import { useForm } from "react-hook-form";
 import uploadToCloudinary from '../utils/cloudinaryUpload'; // Adjust the path as needed
 import axios from 'axios';

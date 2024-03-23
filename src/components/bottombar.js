@@ -1,7 +1,6 @@
 import React from 'react'
-import { FaSearch } from 'react-icons/fa'
 import { FaCartShopping, FaHeart, FaHouse, FaUser } from 'react-icons/fa6'
-import { MdEdit, MdMessage } from 'react-icons/md'
+import {  MdMessage } from 'react-icons/md'
 import {useNavigate} from 'react-router-dom'
 
 function Bottombar() {
