@@ -3,12 +3,12 @@
 import axios from 'axios';
 
 // Function to fetch all posts
-export const getAllPosts = async () => {
+export const getAllPosts = async (pagenum) => {
     try {
       const token=localStorage.getItem("token")
       console.log(token)
     // Send a GET request to the appropriate endpoint to fetch all posts
-    const response = await axios.get(`https://ecommerce-api-shne.onrender.com/posts/getposts`, {
+    const response = await axios.get(`https://ecommerce-api-shne.onrender.com/posts/getposts?page=${pagenum}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

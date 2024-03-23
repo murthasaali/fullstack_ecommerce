@@ -20,7 +20,7 @@ export const getAllUnfollowedUsers = async (userId) => {
   }
 };
 
-export const followUser = async (userIdToFollow) => {
+export const followUser = async (userIdToFollow,name) => {
   try {
     const token = localStorage.getItem("token");
 
@@ -32,7 +32,16 @@ export const followUser = async (userIdToFollow) => {
     
 
     console.log(response.data);
-    toast.success("you started following")
+    toast(`you started following ${name}`,
+  {
+    icon: '👏',
+    style: {
+      borderRadius: '5px',
+      background: '#333',
+      color: '#fff',
+    },
+  }
+);
     return response.data;
   } catch (error) {
     console.error('Error following user:', error);

@@ -78,7 +78,7 @@ function Account() {
         <SetProfileEditModal setOpen={setOpen} open={open} />
     
       </div>
-      <button className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40    font-thin'>share profile</button>
+      <button className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40     font-thin'>share profile</button>
       <div className='md:p-2 p-1 w-[30%] rounded-lg bg-stone-800 bg-opacity-40    font-thin'> <CreatePost setOpen={setCreatePOst} open={createPost}/></div>
      
     </div>
